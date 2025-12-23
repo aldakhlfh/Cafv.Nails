@@ -129,19 +129,23 @@
     const products = [
       { name: 'Gel Polish Nude', price: 45000, desc: 'Gel polish warna nude tahan lama 💅', img: 'https://i.pinimg.com/564x/60/b0/6f/60b06fd7e70368bda4697a9b29a47a9c.jpg' },
       { name: 'Nail Tips Set', price: 35000, desc: 'Set nail tips lengkap untuk mempercantik kuku', img: 'https://i.pinimg.com/564x/6a/44/4f/6a444f55f08a8aeb13b381bc3b01da83.jpg' },
-      { name: 'Cuticle Oil Lemon', price: 25000, desc: 'Minyak kutikula aroma lemon, membuat kuku sehat', img: 'https://i.pinimg.com/564x/31/31/80/3131801cc0b711e47c76e67e58025916.jpg' }
+      { name: 'Cuticle Oil Lemon', price: 25000, desc: 'Minyak kutikula aroma lemon, membuat kuku sehat', img: 'https://i.pinimg.com/564x/31/31/80/3131801cc0b711e47c76e67e58025916.jpg' },
+      { name: 'Nail Art Glitter', price: 120000, desc: 'Desain kuku glitter mewah 💖', img: 'https://i.pinimg.com/564x/ff/aa/12/ffaa1234567890.jpg' },
+      { name: 'Nail Art Floral', price: 110000, desc: 'Desain kuku motif bunga cantik 🌸', img: 'https://i.pinimg.com/564x/aa/bb/cc/aabbccddeeff.jpg' },
+      { name: 'Nail Art Marble', price: 130000, desc: 'Desain kuku motif marble elegan', img: 'https://i.pinimg.com/564x/dd/ee/ff/ddeeff112233.jpg' }
     ];
 
     const treatments = [
       { name: 'Manicure Basic', price: 60000, desc: 'Perawatan dasar kuku tangan agar bersih dan rapi 💅', img: 'https://i.pinimg.com/564x/84/10/0f/84100f272f6c259d75edab27f30e4695.jpg' },
       { name: 'Nail Art Premium', price: 150000, desc: 'Desain kuku mewah sesuai pilihanmu 💖', img: 'https://i.pinimg.com/564x/73/3d/bd/733dbd38fa44b0b2eebcbec5b52ebbaa.jpg' },
-      { name: 'Pedicure Spa', price: 100000, desc: 'Rawat kakimu agar lembut dan segar ✨', img: 'https://i.pinimg.com/564x/5f/b3/a5/5fb3a523ba5a6a8b9d35fa8c1dcf92b1.jpg' }
+      { name: 'Pedicure Spa', price: 100000, desc: 'Rawat kakimu agar lembut dan segar ✨', img: 'https://i.pinimg.com/564x/5f/b3/a5/5fb3a523ba5a6a8b9d35fa8c1dcf92b1.jpg' },
+      { name: 'Russian Manicure', price: 180000, desc: 'Teknik manicure presisi tinggi ala Russian 💅', img: 'https://i.pinimg.com/564x/11/22/33/112233445566.jpg' }
     ];
 
     const storeGrid = document.getElementById('store-grid');
     const treatmentGrid = document.getElementById('treatment-grid');
 
-    // Store
+    // Generate store
     products.forEach(p => {
       storeGrid.innerHTML += `
         <div class="card">
@@ -153,7 +157,7 @@
         </div>`;
     });
 
-    // Treatments
+    // Generate treatments
     treatments.forEach(t => {
       treatmentGrid.innerHTML += `
         <div class="card">
