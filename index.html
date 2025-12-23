@@ -1,32 +1,31 @@
-<title>Usaha Mahasiswa Nail Art | PT XYZ Investment</title>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<meta name="description" content="Usaha Nail Art Mahasiswa dengan layanan berkualitas dan sistem pembayaran digital. Siap menerima pendanaan PT XYZ.">
+  <!-- META TAG SEO -->
+  <title>Usaha Mahasiswa Nail Art | PT XYZ Investment</title>
+  <meta name="description" content="Usaha Nail Art Mahasiswa dengan layanan berkualitas dan sistem pembayaran digital. Siap menerima pendanaan PT XYZ.">
+  <meta name="keywords" content="usaha mahasiswa, nail art, investasi mahasiswa, bisnis digital">
+  <meta name="author" content="Alda Kholifah">
 
-<meta name="keywords" content="usaha mahasiswa, nail art, investasi mahasiswa, bisnis digital">
-
-<meta name="author" content="Alda Kholifah">
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Usaha Nail Art Mahasiswa",
     "description": "Usaha nail art mahasiswa yang dijalankan oleh mahasiswa dengan fokus reputasi digital.",
-    "url": "https://username.github.io/nama-repo/",
+    "url": "https://aldakhlfh.github.io/Cafv.Nails/",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Indonesia"
     }
   }
   </script>
-</head>
 
-
-<!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cafv Nails Studio 💅</title>
+  <!-- Fonts & Style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -35,223 +34,54 @@
       --light: #fff5f8;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: var(--light);
-      color: #333;
-      overflow-x: hidden;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+    body { background: var(--light); color:#333; overflow-x:hidden; }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--pink);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky; top:0; z-index:100;
+      background: var(--pink); padding:15px 30px;
+      display:flex; justify-content:space-between; align-items:center;
+      color:white; box-shadow:0 2px 6px rgba(0,0,0,0.1);
     }
 
-    header h1 {
-      font-weight: 600;
-      font-size: 20px;
-    }
+    header h1 { font-weight:600; font-size:20px; }
+    nav a { color:white; text-decoration:none; margin-left:20px; font-weight:500; transition:0.3s; }
+    nav a:hover { color:#ffe6f0; }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+    .hero { text-align:center; padding:70px 20px; background: linear-gradient(180deg, #f6a8b9 0%, #fcdde3 100%); color:white; }
+    .hero h2 { font-size:32px; font-weight:700; margin-bottom:10px; }
+    .hero p { font-size:16px; }
 
-    nav a:hover {
-      color: #ffe6f0;
-    }
+    section { padding:40px 20px; max-width:1100px; margin:auto; }
+    h3 { text-align:center; margin-bottom:30px; color: var(--accent); }
 
-    .hero {
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(180deg, #f6a8b9 0%, #fcdde3 100%);
-      color: white;
-    }
-
-    .hero h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 16px;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h3 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: var(--accent);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
     .card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.3s;
-      cursor: pointer;
+      background:white; border-radius:15px; overflow:hidden;
+      box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer;
     }
+    .card:hover { transform:translateY(-5px); }
+    .card img { width:100%; height:200px; object-fit:cover; }
+    .card h4 { margin:15px 0 5px; font-weight:600; color:#a24c65; }
+    .card p { font-size:14px; margin-bottom:10px; }
+    .card button { background: var(--accent); border:none; color:white; padding:8px 15px; border-radius:8px; cursor:pointer; transition:0.3s; font-size:14px; margin:5px; width:45%; }
+    .card button:hover { background:#d85775; }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+    #cart { background:white; border-radius:15px; padding:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1); margin-top:30px; }
+    #cart ul { list-style:none; padding:0; }
+    #cart li { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee; }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+    footer { text-align:center; padding:20px; background-color: var(--pink); color:white; font-size:14px; margin-top:40px; border-top:2px solid var(--accent); }
+    footer .social-links { margin-top:8px; }
+    footer .instagram-link { display:inline-flex; align-items:center; gap:8px; color:white; text-decoration:none; font-weight:500; transition:all 0.3s ease; }
+    footer .instagram-link img { width:22px; height:22px; border-radius:6px; }
+    footer .instagram-link:hover { color:#ffe6f0; transform:scale(1.05); }
 
-    .card h4 {
-      margin: 15px 0 5px;
-      font-weight: 600;
-      color: #a24c65;
-    }
+    .popup { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:999; }
+    .popup-content { background:white; padding:20px; border-radius:15px; max-width:400px; text-align:center; animation:fadeIn 0.3s ease; }
+    @keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
 
-    .card p {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    button {
-      background: var(--accent);
-      border: none;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 14px;
-    }
-
-    button:hover {
-      background: #d85775;
-    }
-
-    #cart {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      margin-top: 30px;
-    }
-
-    #cart ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    #cart li {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: var(--pink);
-      color: white;
-      font-size: 14px;
-      margin-top: 40px;
-      border-top: 2px solid var(--accent);
-    }
-
-    footer .social-links {
-      margin-top: 8px;
-    }
-
-    footer .instagram-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    footer .instagram-link img {
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
-    }
-
-    footer .instagram-link:hover {
-      color: #ffe6f0;
-      transform: scale(1.05);
-    }
-
-    /* popup detail treatment */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .popup-content {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 400px;
-      text-align: center;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @media (max-width: 600px) {
-      nav a {
-        margin-left: 10px;
-        font-size: 14px;
-      }
-
-      .hero h2 {
-        font-size: 24px;
-      }
-    }
+    @media (max-width:600px){ nav a{margin-left:10px; font-size:14px;} .hero h2{font-size:24px;} }
   </style>
 </head>
 <body>
@@ -325,6 +155,7 @@
     const storeGrid = document.getElementById('store-grid');
     const treatmentGrid = document.getElementById('treatment-grid');
 
+    // Store
     products.forEach(p => {
       storeGrid.innerHTML += `
         <div class="card">
@@ -335,12 +166,15 @@
         </div>`;
     });
 
+    // Treatments
     treatments.forEach(t => {
       treatmentGrid.innerHTML += `
-        <div class="card" onclick="showDetail('${t.name}', '${t.desc}', ${t.price}, '${t.img}')">
+        <div class="card">
           <img src="${t.img}" alt="${t.name}">
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
+          <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
+          <button onclick="showDetail('${t.name}', '${t.desc}', ${t.price}, '${t.img}')">Detail</button>
         </div>`;
     });
 
@@ -368,15 +202,10 @@
     }
 
     function checkout() {
-      if (cart.length === 0) {
-        alert("Keranjang masih kosong!");
-        return;
-      }
-      window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==', '_blank');
+      if(cart.length === 0) { alert("Keranjang masih kosong!"); return; }
+      window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==','_blank');
       alert("Kirim pesananmu via DM ke Instagram kami 💬");
-      cart = [];
-      localStorage.removeItem('cart');
-      updateCart();
+      cart = []; localStorage.removeItem('cart'); updateCart();
     }
 
     function showDetail(name, desc, price, img) {
@@ -390,7 +219,7 @@
           <p><b>Rp${price.toLocaleString()}</b></p>
           <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
           <br><br>
-          <button onclick="window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==', '_blank')">Pesan via Instagram 💬</button>
+          <button onclick="window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==','_blank')">Pesan via Instagram 💬</button>
           <br><br>
           <button onclick="this.closest('.popup').remove()">Tutup</button>
         </div>`;
