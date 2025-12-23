@@ -64,7 +64,10 @@
     footer .instagram-link:hover { color:#ffe6f0; transform:scale(1.05); }
 
     .popup { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:999; }
-    .popup-content { background:white; padding:20px; border-radius:15px; max-width:400px; text-align:center; animation:fadeIn 0.3s ease; }
+    .popup-content { background:white; padding:20px; border-radius:15px; max-width:400px; text-align:left; animation:fadeIn 0.3s ease; overflow-y:auto; max-height:90vh; }
+    .popup-content h3 { text-align:center; color:#a24c65; margin-top:10px; }
+    .popup-content p { margin-bottom:10px; }
+    .popup-content b { display:block; margin-bottom:5px; }
     @keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
 
     @media (max-width:600px){ nav a{margin-left:10px; font-size:14px;} .hero h2{font-size:24px;} }
@@ -120,28 +123,28 @@
     <div class="social-links">
       <a href="https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==" target="_blank" class="instagram-link">
         <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
-        <span>@cafv.nails_</span>s
+        <span>@cafv.nails_</span>
       </a>
     </div>
   </footer>
 
   <script>
     const products = [
-      { name: 'Gel Polish polos', price: 45000, desc: 'Gel polishwarna nude tahan lama 💅', img: 'https://i.pinimg.com/564x/60/b0/6f/60b06fd7e70368bda4697a9b29a47a9c.jpg' },
-      { name: 'Blush Nails', price: 35000, desc: 'Set nail tips lengkap untuk mempercantik kuku', img: 'BlushPink.jpg' },
-      { name: 'Cuticle Oil Lemon', price: 25000, desc: 'Minyak kutikula aroma lemon, membuat kuku sehat', img: 'https://i.pinimg.com/564x/31/31/80/3131801cc0b711e47c76e67e58025916.jpg' },
-      { name: 'Nail Art Glitter', price: 120000, desc: 'Desain kuku glitter mewah 💖', img: 'https://i.pinimg.com/564x/ff/aa/12/ffaa1234567890.jpg' },
-      { name: 'Nail Art Floral', price: 110000, desc: 'Desain kuku motif bunga cantik 🌸', img: 'https://i.pinimg.com/564x/aa/bb/cc/aabbccddeeff.jpg' },
-      { name: 'Nail Art Marble', price: 130000, desc: 'Desain kuku motif marble elegan', img: 'https://i.pinimg.com/564x/dd/ee/ff/ddeeff112233.jpg' },
-      { name: 'Nail Art 3D', price: 150000, desc: 'Desain kuku 3D timbul unik dan cantik', img: 'https://i.pinimg.com/564x/33/44/55/334455667788.jpg' },
-      { name: 'Nail Art Cat Eye', price: 140000, desc: 'Desain kuku efek cat eye mengkilap dan elegan', img: 'https://i.pinimg.com/564x/77/88/99/778899aabbcc.jpg' }
+      { name:'Gel Polish Polos – Maroon', price:45000, desc:'Gel Polish Polos – Maroon', longDesc:'Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa. Aplikasi gel polish satu warna dengan hasil rapi, berkilau, dan tahan lama—sempurna untuk tampilan elegan yang tak lekang oleh waktu.', img:'assets/images/gelpolish-maroon.jpg' },
+      { name:'Blush Pink Nail Art', price:50000, desc:'Blush Pink Nail Art', longDesc:'Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih. Ideal untuk kamu yang menyukai keindahan sederhana dengan sentuhan anggun, cocok untuk keseharian maupun momen spesial.', img:'assets/images/blushpink.jpg' },
+      { name:'Chrome Nail Art', price:60000, desc:'Chrome Nail Art', longDesc:'Bold Shine, Modern Luxury.\nEfek chrome berkilau seperti cermin menghadirkan tampilan futuristik dan mewah. Pilihan tepat untuk kamu yang ingin tampil standout dengan kesan high-fashion.', img:'assets/images/chrome.jpg' },
+      { name:'Glitter Nail Art', price:70000, desc:'Glitter Nail Art', longDesc:'Sparkle with Confidence.\nSentuhan glitter yang memantulkan cahaya memberikan kesan glamor dan hidup. Dirancang untuk momen spesial, pesta, atau saat kamu ingin kuku menjadi pusat perhatian.', img:'assets/images/glitter.jpg' },
+      { name:'Floral Nail Art', price:75000, desc:'Floral Nail Art', longDesc:'Graceful, Feminine, Romantic.\nMotif bunga yang dirancang dengan detail halus menghadirkan nuansa lembut dan romantis. Pilihan sempurna untuk tampilan feminin yang manis dan elegan.', img:'assets/images/floral.jpg' },
+      { name:'Marble Nail Art', price:80000, desc:'Marble Nail Art', longDesc:'Art Inspired by Nature.\nDesain marmer eksklusif dengan alur artistik menciptakan kesan mewah dan sophisticated. Setiap kuku tampil unik, menyerupai karya seni bernilai tinggi.', img:'assets/images/marble.jpg' },
+      { name:'3D Nail Art', price:150000, desc:'3D Nail Art', longDesc:'Statement of Glamour.\nDetail tiga dimensi seperti mutiara dan charms menghadirkan tampilan dramatis dan eksklusif. Cocok untuk acara istimewa, photoshoot, atau kamu yang berani tampil beda.', img:'assets/images/3d.jpg' },
+      { name:'Cat Eye Nail Art', price:140000, desc:'Cat Eye Nail Art', longDesc:'Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya menciptakan tampilan elegan dan memikat. Memberikan kesan modern, mewah, dan penuh karakter.', img:'assets/images/cateye.jpg' }
     ];
 
     const treatments = [
-      { name: 'Manicure Basic', price: 60000, desc: 'Perawatan dasar kuku tangan agar bersih dan rapi 💅', img: 'https://i.pinimg.com/564x/84/10/0f/84100f272f6c259d75edab27f30e4695.jpg' },
-      { name: 'Nail Art Premium', price: 150000, desc: 'Desain kuku mewah sesuai pilihanmu 💖', img: 'https://i.pinimg.com/564x/73/3d/bd/733dbd38fa44b0b2eebcbec5b52ebbaa.jpg' },
-      { name: 'Pedicure Spa', price: 100000, desc: 'Rawat kakimu agar lembut dan segar ✨', img: 'https://i.pinimg.com/564x/5f/b3/a5/5fb3a523ba5a6a8b9d35fa8c1dcf92b1.jpg' },
-      { name: 'Russian Manicure', price: 180000, desc: 'Teknik manicure presisi tinggi ala Russian 💅', img: 'https://i.pinimg.com/564x/11/22/33/112233445566.jpg' }
+      { name:'Basic Manicure', price:60000, desc:'Perawatan dasar kuku tangan', longDesc:'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.', img:'assets/images/basicmanicure.jpg' },
+      { name:'Russian Manicure', price:180000, desc:'Russian Manicure', longDesc:'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.', img:'assets/images/russian.jpg' },
+      { name:'Nail Extension', price:200000, desc:'Nail Extension', longDesc:'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic sebagai dasar berbagai nail art.', img:'assets/images/nailextension.jpg' },
+      { name:'Pedicure Spa', price:100000, desc:'Pedicure Spa', longDesc:'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi dan kesehatan kuku kaki.', img:'assets/images/pedicurespa.jpg' }
     ];
 
     const storeGrid = document.getElementById('store-grid');
@@ -154,7 +157,7 @@
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
           <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${p.name}', '${p.desc}', ${p.price}, '${p.img}')">Detail</button>
+          <button onclick="showDetail('${p.name}', '${p.desc}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
         </div>`;
     });
 
@@ -165,7 +168,7 @@
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
           <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${t.name}', '${t.desc}', ${t.price}, '${t.img}')">Detail</button>
+          <button onclick="showDetail('${t.name}', '${t.desc}', '${t.longDesc}', ${t.price}, '${t.img}')">Detail</button>
         </div>`;
     });
 
@@ -209,14 +212,15 @@
       cart = []; localStorage.removeItem('cart'); updateCart();
     }
 
-    function showDetail(name, desc, price, img) {
+    function showDetail(name, desc, longDesc, price, img) {
       const popup = document.createElement('div');
       popup.className = 'popup';
       popup.innerHTML = `
         <div class="popup-content">
           <img src="${img}" style="width:100%;border-radius:10px;">
-          <h3 style="color:#a24c65;margin-top:10px;">${name}</h3>
-          <p>${desc}</p>
+          <h3>${name}</h3>
+          <p><b>${desc}</b></p>
+          <p>${longDesc.replace(/\n/g,'<br>')}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
           <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
           <br><br>
