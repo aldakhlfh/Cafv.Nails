@@ -3,8 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <!-- META TAG SEO -->
   <title>Usaha Mahasiswa Nail Art | PT XYZ Investment</title>
   <meta name="description" content="Usaha Nail Art Mahasiswa dengan layanan berkualitas dan sistem pembayaran digital. Siap menerima pendanaan PT XYZ.">
   <meta name="keywords" content="usaha mahasiswa, nail art, investasi mahasiswa, bisnis digital">
@@ -18,14 +16,10 @@
     "name": "Usaha Nail Art Mahasiswa",
     "description": "Usaha nail art mahasiswa yang dijalankan oleh mahasiswa dengan fokus reputasi digital.",
     "url": "https://aldakhlfh.github.io/Cafv.Nails/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Indonesia"
-    }
+    "address": { "@type": "PostalAddress", "addressLocality": "Indonesia" }
   }
   </script>
 
-  <!-- Fonts & Style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root { --pink:#f6a8b9; --accent:#f06c88; --light:#fff5f8; }
@@ -68,12 +62,15 @@
     .popup-content h3 { text-align:center; color:#a24c65; margin-top:10px; }
     .popup-content p { margin-bottom:10px; }
     .popup-content b { display:block; margin-bottom:5px; }
+    .checkout-options button { width:100%; margin-bottom:5px; }
     @keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
 
     /* Login Pop-up */
     #login-popup { display:flex; }
     #login-popup .popup-content { max-width:300px; text-align:center; }
     #login-popup button { width:100%; background:var(--accent); color:white; padding:10px; border:none; border-radius:8px; font-size:16px; margin-top:10px; cursor:pointer; }
+
+    @media (max-width:600px){ nav a{margin-left:10px; font-size:14px;} .hero h2{font-size:24px;} }
   </style>
 </head>
 <body>
@@ -213,9 +210,32 @@
 
     function checkout() {
       if(cart.length === 0){ alert("Keranjang masih kosong!"); return; }
-      window.open('https://www.instagram.com/cafv.nails_','_blank');
-      alert("Kirim pesananmu via DM ke Instagram kami 💬");
-      cart = []; localStorage.removeItem('cart'); updateCart();
+      const popup = document.createElement('div');
+      popup.className = 'popup';
+      popup.innerHTML = `
+        <div class="popup-content">
+          <h3>Checkout 🛒</h3>
+          <p>Total Belanja: <b>Rp${cart.reduce((a,b)=>a+b.price,0).toLocaleString()}</b></p>
+          <div class="checkout-options">
+            <button onclick="payAll('BCA')">Bayar via BCA 💳</button>
+            <button onclick="payAll('Mandiri')">Bayar via Mandiri 💳</button>
+            <button onclick="payAll('OVO')">Bayar via OVO 📲</button>
+            <button onclick="payAll('DANA')">Bayar via DANA 📲</button>
+          </div>
+          <br>
+          <button onclick="window.open('https://www.instagram.com/cafv.nails_','_blank')">Instagram 💬</button>
+          <br><br>
+          <button onclick="this.closest('.popup').remove()">Tutup</button>
+        </div>`;
+      document.body.appendChild(popup);
+    }
+
+    function payAll(method){
+      alert(`Pembayaran via ${method} berhasil ✅`);
+      cart = [];
+      localStorage.removeItem('cart');
+      updateCart();
+      document.querySelector('.popup').remove();
     }
 
     function showDetail(name, longDesc, price, img){
