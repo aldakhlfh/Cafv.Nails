@@ -1,317 +1,403 @@
+<title>Usaha Mahasiswa Nail Art | PT XYZ Investment</title>
+
+<meta name="description" content="Usaha Nail Art Mahasiswa dengan layanan berkualitas dan sistem pembayaran digital. Siap menerima pendanaan PT XYZ.">
+
+<meta name="keywords" content="usaha mahasiswa, nail art, investasi mahasiswa, bisnis digital">
+
+<meta name="author" content="Alda Kholifah">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Usaha Nail Art Mahasiswa",
+    "description": "Usaha nail art mahasiswa yang dijalankan oleh mahasiswa dengan fokus reputasi digital.",
+    "url": "https://username.github.io/nama-repo/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Indonesia"
+    }
+  }
+  </script>
+</head>
+
+
 <!doctype html>
 <html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cafv Nails Studio 💅</title>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-242M369C12"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-242M369C12');
-</script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#fff6f8;
-      --pink-300:#f7a6bd;
-      --accent:#f6a8b9;
-      --text:#6b3a46;
-      --muted:#8b6b73;
-      --card-shadow:0 8px 18px rgba(246,160,185,0.12);
-      --soft-shadow:0 6px 14px rgba(246,160,185,0.08);
-    }
-    *{box-sizing:border-box;scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Poppins",sans-serif;
-      background:linear-gradient(180deg,var(--bg),#fff0f2 60%);
-      color:var(--text);
+    :root {
+      --pink: #f6a8b9;
+      --accent: #f06c88;
+      --light: #fff5f8;
     }
 
-    header{
-      background:#fff;
-      padding:16px 28px;
-      display:flex;align-items:center;justify-content:space-between;
-      border-bottom:1px solid rgba(246,160,185,0.12);
-      position:sticky;top:0;z-index:100;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .brand{display:flex;align-items:center;gap:10px;}
-    .logo{
-      width:48px;height:48px;border-radius:50%;
-      overflow:hidden;box-shadow:0 4px 10px rgba(246,160,185,0.3);
-    }
-    .logo img{width:100%;height:100%;object-fit:cover;}
-
-    nav a{
-      text-decoration:none;color:var(--muted);
-      margin:0 12px;font-weight:600;transition:.2s;
-    }
-    nav a:hover{color:var(--pink-300)}
-    nav a.active{color:var(--pink-300);font-weight:700}
-
-    .cart-btn{
-      position:relative;border:1px solid rgba(107,58,70,0.06);
-      background:transparent;padding:8px 10px;border-radius:10px;
-      cursor:pointer;display:flex;align-items:center;gap:8px;
-      box-shadow:var(--card-shadow);
-    }
-    .cart-badge{
-      position:absolute;right:-6px;top:-6px;background:var(--pink-300);
-      color:#fff;width:20px;height:20px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      font-size:12px;font-weight:600;
+    body {
+      background: var(--light);
+      color: #333;
+      overflow-x: hidden;
     }
 
-    section{padding:60px 20px;max-width:1100px;margin:auto;text-align:center;}
-    #home h2,#catalog h2,#store h2,#treatment h2,#kontak h2{color:var(--pink-300);margin-bottom:10px;}
-    #home p,#catalog p,#store p,#kontak p{color:var(--muted)}
-
-    .grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:28px;margin-top:24px;
-    }
-    .card{
-      background:#fff;border-radius:14px;padding:20px;text-align:center;
-      box-shadow:var(--card-shadow);
-    }
-    .product-img{
-      width:160px;height:160px;border-radius:12px;overflow:hidden;
-      margin:0 auto 12px;
-    }
-    .product-img img{width:100%;height:100%;object-fit:cover;}
-    .card h3{margin:6px 0;color:var(--pink-300);}
-    .price{font-weight:700;margin-bottom:10px;color:#b34b66;}
-    .btn-add{
-      background:var(--accent);border:none;color:white;
-      padding:8px 14px;border-radius:999px;cursor:pointer;
-      font-weight:600;box-shadow:var(--soft-shadow);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--pink);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    footer{padding:20px;text-align:center;color:var(--muted);border-top:1px solid rgba(246,160,185,0.08)}
-
-    .cart-modal{
-      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
-      background:rgba(0,0,0,0.3);z-index:200;visibility:hidden;opacity:0;transition:.2s;
+    header h1 {
+      font-weight: 600;
+      font-size: 20px;
     }
-    .cart-modal.show{visibility:visible;opacity:1;}
-    .cart-panel{
-      width:420px;max-width:95%;background:#fff;border-radius:10px;
-      padding:18px;box-shadow:0 20px 40px rgba(0,0,0,0.18);
-    }
-    .cart-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f2e5e9;}
-    .mini{width:46px;height:46px;border-radius:8px;overflow:hidden;}
-    .mini img{width:100%;height:100%;object-fit:cover;}
-    .remove{border:1px solid rgba(207,95,117,0.14);background:#fff;padding:6px 8px;border-radius:6px;color:#c75b6e;cursor:pointer;}
-    .cart-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
-    .checkout{background:#2e7d46;color:white;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700;}
-    .empty{text-align:center;padding:18px;color:var(--muted)}
 
-    @media(max-width:600px){
-      header{padding:12px 16px;}nav a{margin:0 6px;font-size:14px;}
-      section{padding:40px 12px;} .grid{gap:16px;} .product-img{width:120px;height:120px;}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffe6f0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(180deg, #f6a8b9 0%, #fcdde3 100%);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h4 {
+      margin: 15px 0 5px;
+      font-weight: 600;
+      color: #a24c65;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #d85775;
+    }
+
+    #cart {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+
+    #cart ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #cart li {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--pink);
+      color: white;
+      font-size: 14px;
+      margin-top: 40px;
+      border-top: 2px solid var(--accent);
+    }
+
+    footer .social-links {
+      margin-top: 8px;
+    }
+
+    footer .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    footer .instagram-link img {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+    }
+
+    footer .instagram-link:hover {
+      color: #ffe6f0;
+      transform: scale(1.05);
+    }
+
+    /* popup detail treatment */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 10px;
+        font-size: 14px;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="brand">
-      <div class="logo"><img src="assets/img/Cafv_Nails.jpg" alt="Logo Cafv Nails"></div>
-      <h1>Cafv Nails Studio</h1>
-    </div>
-
+    <h1>Cafv Nails Studio 💅</h1>
     <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#catalog">Katalog</a>
-      <a href="#store">Store</a>
+      <a href="#home">Home</a>
+      <a href="#katalog">Store</a>
       <a href="#treatment">Treatment</a>
       <a href="#kontak">Kontak</a>
     </nav>
-
-    <button class="cart-btn" id="openCartBtn">🛍️<div class="cart-badge" id="badge">0</div></button>
   </header>
 
-  <section id="home">
+  <section class="hero" id="home">
     <h2>Selamat Datang di Cafv Nails Studio</h2>
-    <p>Temukan koleksi warna dan desain kuku terbaik untuk mempercantik harimu 💖
-       Kami menciptakan lebih dari sekadar tampilan kami menciptakan pengalaman
-    
-    </p>
+    <p>Tempat terbaik untuk perawatan kuku dan nail art di Tangerang ✨</p>
   </section>
 
-  <section id="catalog">
-    <h2>Katalog Produk</h2>
-    <p>Pilih dan tambahkan ke keranjangmu ✨
-Temukan produk gemes yang siap bikin harimu makin happy! Dari aksesoris lucu, 
-perlengkapan nail art,sampai dekor kecil yang estetik — semuanya di sini 
-
-    </p>
-    <div class="grid" id="productGrid"></div>
+  <!-- STORE (KATALOG) -->
+  <section id="katalog">
+    <h3>🛍️ Store Produk</h3>
+    <div class="grid" id="store-grid"></div>
   </section>
 
-  <section id="store">
-    <h2>Store Kami</h2>
-    <p>Temukan produk gemes yang siap bikin harimu makin happy! 💅<br>
-       📍 Cabang: Jakarta, Bandung, Surabaya</p>
-  </section>
-
+  <!-- TREATMENT -->
   <section id="treatment">
-    <h2>Treatment Nail Art
-</h2>
-    <div class="grid" id="treatmentGrid"></div>
-  </section>
+    <h3>💖 Treatment Nails</h3>
+    <div class="grid" id="treatment-grid"></div>
 
-  <section id="kontak">
-    <h2>Hubungi Kami</h2>
-    <p>📍 Melasti 23, Jakarta</p>
-    <p>📞 WhatsApp: 0812-3456-7345</p>
-    <p>🕒 09.00 - 20.00 WIB</p>
-  </section>
-
-  <footer>© 2025 Cafv Nails Studio. All Rights Reserved.</footer>
-
-  <div class="cart-modal" id="cartModal">
-    <div class="cart-panel">
-      <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-        <h4 style="color:var(--pink-300)">🛒 Keranjang Kamu</h4>
-        <button id="closeCart" style="background:none;border:none;font-size:18px;cursor:pointer;">✕</button>
-      </header>
-      <div id="cartList"></div>
-      <div class="cart-footer">
-        <div style="font-weight:700">Total: <span id="totalText">Rp0</span></div>
-        <button class="checkout" id="checkoutBtn">Checkout</button>
-      </div>
+    <div id="cart">
+      <h3>🛒 Keranjang Belanja</h3>
+      <ul id="cart-items"></ul>
+      <p id="total">Total: Rp0</p>
+      <button onclick="checkout()">Checkout</button>
     </div>
-  </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak">
+    <h3>📞 Kontak Kami</h3>
+    <p>📍 Tangerang, Indonesia</p>
+    <p>📞 WhatsApp: <a href="https://wa.me/6281234567345" target="_blank">0812-3456-7345</a></p>
+    <p>💌 Email: cafvnailsstudio@gmail.com</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Cafv Nails Studio 💅 | All Rights Reserved</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==" target="_blank" class="instagram-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+        <span>@cafv.nails_</span>
+      </a>
+    </div>
+  </footer>
 
   <script>
     const products = [
-      {id:'p1',name:'Blush Pink',price:65000,img:'assets/img/BlushPink.jpg'},
-      {id:'p2',name:'Floral Nude',price:70000,img:'assets/img/FloralNude.jpg'},
-      {id:'p3',name:'White Pearl',price:80000,img:'assets/img/WhitePearl.jpg'},
-      {id:'p4',name:'Pastel Dream',price:72000,img:'assets/img/PastelDream.jpg'},
+      { name: 'Gel Polish Nude', price: 45000, img: 'https://i.pinimg.com/564x/60/b0/6f/60b06fd7e70368bda4697a9b29a47a9c.jpg' },
+      { name: 'Nail Tips Set', price: 35000, img: 'https://i.pinimg.com/564x/6a/44/4f/6a444f55f08a8aeb13b381bc3b01da83.jpg' },
+      { name: 'Cuticle Oil Lemon', price: 25000, img: 'https://i.pinimg.com/564x/31/31/80/3131801cc0b711e47c76e67e58025916.jpg' }
     ];
 
     const treatments = [
-      {id:'t1',name:'Manicure & Nail Spa',price:95000,img:'assets/img/Treatment1.jpg'},
-      {id:'t2',name:'Gel Nail Art',price:110000,img:'assets/img/Treatment2.jpg'},
-      {id:'t3',name:'Luxury Hand Care',price:120000,img:'assets/img/Treatment3.jpg'},
-      {id:'t4',name:'Pedicure Spa',price:100000,img:'assets/img/Treatment4.jpg'},
+      { name: 'Manicure Basic', price: 60000, desc: 'Perawatan dasar kuku tangan agar bersih dan rapi 💅', img: 'https://i.pinimg.com/564x/84/10/0f/84100f272f6c259d75edab27f30e4695.jpg' },
+      { name: 'Nail Art Premium', price: 150000, desc: 'Desain kuku mewah sesuai pilihanmu 💖', img: 'https://i.pinimg.com/564x/73/3d/bd/733dbd38fa44b0b2eebcbec5b52ebbaa.jpg' },
+      { name: 'Pedicure Spa', price: 100000, desc: 'Rawat kakimu agar lembut dan segar ✨', img: 'https://i.pinimg.com/564x/5f/b3/a5/5fb3a523ba5a6a8b9d35fa8c1dcf92b1.jpg' }
     ];
 
-    const STORAGE_KEY='cafv_cart';
-    function loadCart(){return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}
-    function saveCart(c){localStorage.setItem(STORAGE_KEY,JSON.stringify(c));}
-    let cart=loadCart();
+    const storeGrid = document.getElementById('store-grid');
+    const treatmentGrid = document.getElementById('treatment-grid');
 
-    function formatRp(n){return 'Rp'+n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
-
-    const grid=document.getElementById('productGrid');
-    const tgrid=document.getElementById('treatmentGrid');
-
-    function renderProducts(){
-      grid.innerHTML='';
-      products.forEach(p=>{
-        const el=document.createElement('div');
-        el.className='card';
-        el.innerHTML=`
-          <div class="product-img"><img src="${p.img}" alt="${p.name}"></div>
-          <h3>${p.name}</h3>
-          <div class="price">${formatRp(p.price)}</div>
-          <button class="btn-add" data-id="${p.id}">Tambah ke Keranjang</button>`;
-        grid.appendChild(el);
-      });
-    }
-
-    function renderTreatments(){
-      tgrid.innerHTML='';
-      treatments.forEach(t=>{
-        const el=document.createElement('div');
-        el.className='card';
-        el.innerHTML=`
-          <div class="product-img"><img src="${t.img}" alt="${t.name}"></div>
-          <h3>${t.name}</h3>
-          <div class="price">${formatRp(t.price)}</div>
-          <button class="btn-add" data-id="${t.id}">Tambah ke Keranjang</button>`;
-        tgrid.appendChild(el);
-      });
-    }
-
-    function addToCart(id){
-      const item=[...products,...treatments].find(x=>x.id===id);
-      if(!item)return;
-      const f=cart.find(i=>i.id===id);
-      if(f)f.qty++;else cart.push({...item,qty:1});
-      saveCart(cart);updateBadge();showToast(`${item.name} ditambahkan ke keranjang 💅`);
-    }
-
-    function removeFromCart(id){
-      cart=cart.filter(i=>i.id!==id);
-      saveCart(cart);renderCartList();updateBadge();
-    }
-
-    function updateBadge(){
-      const b=document.getElementById('badge');
-      const t=cart.reduce((s,i)=>s+i.qty,0);
-      b.textContent=t;b.style.display=t?'flex':'none';
-    }
-
-    function renderCartList(){
-      const list=document.getElementById('cartList');
-      list.innerHTML='';
-      if(cart.length===0){
-        list.innerHTML='<div class="empty">Keranjang kosong 💅</div>';
-        document.getElementById('totalText').textContent='Rp0';
-        return;
-      }
-      cart.forEach(i=>{
-        const row=document.createElement('div');
-        row.className='cart-item';
-        row.innerHTML=`
-          <div class="meta"><div class="mini"><img src="${i.img}"></div>
-          <div><div style="font-weight:600">${i.name} x${i.qty}</div>
-          <div style="font-size:13px;color:var(--muted)">${formatRp(i.price)}</div></div></div>
-          <button class="remove" data-id="${i.id}">x</button>`;
-        list.appendChild(row);
-      });
-      const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-      document.getElementById('totalText').textContent=formatRp(total);
-      list.querySelectorAll('.remove').forEach(btn=>btn.onclick=()=>removeFromCart(btn.dataset.id));
-    }
-
-    function showToast(msg){
-      const t=document.createElement('div');
-      t.textContent=msg;
-      Object.assign(t.style,{
-        position:'fixed',bottom:'24px',left:'50%',transform:'translateX(-50%)',
-        background:'#fff',padding:'10px 14px',borderRadius:'12px',
-        boxShadow:'0 6px 14px rgba(0,0,0,0.12)',fontWeight:'600',zIndex:300});
-      document.body.appendChild(t);
-      setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300)},1500);
-    }
-
-    const modal=document.getElementById('cartModal');
-    document.getElementById('openCartBtn').onclick=()=>{renderCartList();modal.classList.add('show');}
-    document.getElementById('closeCart').onclick=()=>modal.classList.remove('show');
-    modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show');}
-
-    document.getElementById('checkoutBtn').onclick=()=>{
-      if(!cart.length)return showToast('Keranjang masih kosong!');
-      alert('Terima kasih! Pesananmu sedang diproses 💖');
-      cart=[];saveCart(cart);updateBadge();renderCartList();modal.classList.remove('show');
-    }
-
-    document.addEventListener('click',e=>{
-      const btn=e.target.closest('.btn-add');
-      if(btn)addToCart(btn.dataset.id);
+    products.forEach(p => {
+      storeGrid.innerHTML += `
+        <div class="card">
+          <img src="${p.img}" alt="${p.name}">
+          <h4>${p.name}</h4>
+          <p>Rp${p.price.toLocaleString()}</p>
+          <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
+        </div>`;
     });
 
-    renderProducts();renderTreatments();updateBadge();
+    treatments.forEach(t => {
+      treatmentGrid.innerHTML += `
+        <div class="card" onclick="showDetail('${t.name}', '${t.desc}', ${t.price}, '${t.img}')">
+          <img src="${t.img}" alt="${t.name}">
+          <h4>${t.name}</h4>
+          <p>Rp${t.price.toLocaleString()}</p>
+        </div>`;
+    });
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCart();
+      alert(name + " berhasil ditambahkan ke keranjang 💅");
+    }
+
+    function updateCart() {
+      const list = document.getElementById('cart-items');
+      const total = document.getElementById('total');
+      list.innerHTML = '';
+      let sum = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.name + " - Rp" + item.price.toLocaleString();
+        list.appendChild(li);
+        sum += item.price;
+      });
+      total.textContent = "Total: Rp" + sum.toLocaleString();
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Keranjang masih kosong!");
+        return;
+      }
+      window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==', '_blank');
+      alert("Kirim pesananmu via DM ke Instagram kami 💬");
+      cart = [];
+      localStorage.removeItem('cart');
+      updateCart();
+    }
+
+    function showDetail(name, desc, price, img) {
+      const popup = document.createElement('div');
+      popup.className = 'popup';
+      popup.innerHTML = `
+        <div class="popup-content">
+          <img src="${img}" style="width:100%;border-radius:10px;">
+          <h3 style="color:#a24c65;margin-top:10px;">${name}</h3>
+          <p>${desc}</p>
+          <p><b>Rp${price.toLocaleString()}</b></p>
+          <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
+          <br><br>
+          <button onclick="window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==', '_blank')">Pesan via Instagram 💬</button>
+          <br><br>
+          <button onclick="this.closest('.popup').remove()">Tutup</button>
+        </div>`;
+      document.body.appendChild(popup);
+    }
+
+    updateCart();
   </script>
 </body>
 </html>
