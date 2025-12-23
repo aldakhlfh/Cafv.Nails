@@ -18,7 +18,10 @@
     "name": "Usaha Nail Art Mahasiswa",
     "description": "Usaha nail art mahasiswa yang dijalankan oleh mahasiswa dengan fokus reputasi digital.",
     "url": "https://aldakhlfh.github.io/Cafv.Nails/",
-    "address": { "@type": "PostalAddress", "addressLocality": "Indonesia" }
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Indonesia"
+    }
   }
   </script>
 
@@ -60,12 +63,14 @@
     footer .instagram-link img { width:22px; height:22px; border-radius:6px; }
     footer .instagram-link:hover { color:#ffe6f0; transform:scale(1.05); }
 
-    .popup { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:999; }
-    .popup-content { background:white; padding:20px; border-radius:15px; max-width:400px; text-align:left; animation:fadeIn 0.3s ease; overflow-y:auto; max-height:90vh; }
-    .popup-content h3 { text-align:center; color:#a24c65; margin-top:10px; }
+    .popup, .login-popup { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:999; }
+    .popup-content, .login-content { background:white; padding:20px; border-radius:15px; max-width:400px; text-align:left; animation:fadeIn 0.3s ease; overflow-y:auto; max-height:90vh; }
+    .popup-content h3, .login-content h3 { text-align:center; color:#a24c65; margin-top:10px; }
     .popup-content p { margin-bottom:10px; }
     .popup-content b { display:block; margin-bottom:5px; }
-    input { width:100%; padding:8px; margin-bottom:10px; border-radius:6px; border:1px solid #ccc; }
+    .login-content button { width:100%; padding:10px; margin-top:15px; background: var(--accent); color:white; border:none; border-radius:8px; cursor:pointer; }
+    .login-content button:hover { background:#d85775; }
+
     @keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
 
     @media (max-width:600px){ nav a{margin-left:10px; font-size:14px;} .hero h2{font-size:24px;} }
@@ -74,16 +79,11 @@
 <body>
 
   <!-- LOGIN POPUP -->
-  <div id="login-popup" class="popup">
-    <div class="popup-content">
-      <h3>Login</h3>
-      <label>Username</label>
-      <input type="text" id="login-username" placeholder="Masukkan username">
-      <label>Password</label>
-      <input type="password" id="login-password" placeholder="Masukkan password">
-      <button onclick="doLogin()">Login</button>
-      <br><br>
-      <button onclick="document.getElementById('login-popup').style.display='none'">Tutup</button>
+  <div class="login-popup" id="login-popup">
+    <div class="login-content">
+      <h3>Selamat Datang di Cafv Nails Studio 💅</h3>
+      <p>Tekan Lanjutkan untuk melihat katalog dan treatment kami.</p>
+      <button onclick="enterSite()">Lanjutkan</button>
     </div>
   </div>
 
@@ -129,7 +129,6 @@
     <p>💌 Email: cafvnailsstudio@gmail.com</p>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Cafv Nails Studio 💅 | All Rights Reserved</p>
     <div class="social-links">
@@ -141,85 +140,103 @@
   </footer>
 
   <script>
-    // LOGIN
-    function showLogin(){document.getElementById('login-popup').style.display='flex';}
-    function doLogin(){
-      const u=document.getElementById('login-username').value;
-      const p=document.getElementById('login-password').value;
-      if(u==='admin'&&p==='12345'){alert('Login berhasil ✅');document.getElementById('login-popup').style.display='none';localStorage.setItem('loggedIn','true');}
-      else alert('Username atau password salah ❌');
+    function enterSite() {
+      document.getElementById('login-popup').style.display = 'none';
     }
-    window.addEventListener('load',()=>{if(!localStorage.getItem('loggedIn')) showLogin();});
 
-    // DATA PRODUK & TREATMENT
-    const products=[
-      { name:'Gel Polish Polos – Maroon', price:45000, desc:'', longDesc:'Refined. Elegant. Timeless.\nBalutan warna maroon...', img:'assets/images/gelpolish-maroon.jpg' },
-      { name:'Blush Pink Nail Art', price:50000, desc:'', longDesc:'Soft Beauty in Every Detail.\nWarna blush pink...', img:'assets/images/BlushPinkNailArt.jpg' },
-      { name:'Chrome Nail Art', price:60000, desc:'', longDesc:'Bold Shine, Modern Luxury.\nEfek chrome...', img:'assets/images/chrome.jpg' },
-      { name:'Glitter Nail Art', price:70000, desc:'', longDesc:'Sparkle with Confidence.\nSentuhan glitter...', img:'assets/images/glitter.jpg' },
-      { name:'Floral Nail Art', price:75000, desc:'', longDesc:'Graceful, Feminine, Romantic.\nMotif bunga...', img:'assets/images/floral.jpg' },
-      { name:'Marble Nail Art', price:80000, desc:'', longDesc:'Art Inspired by Nature.\nDesain marmer...', img:'assets/images/marble.jpg' },
-      { name:'3D Nail Art', price:150000, desc:'', longDesc:'Statement of Glamour.\nDetail 3D...', img:'assets/images/3d.jpg' },
-      { name:'Cat Eye Nail Art', price:140000, desc:'', longDesc:'Mysterious Glow, Captivating Look...', img:'assets/images/cateye.jpg' }
+    const products = [
+      { name:'Gel Polish Polos – Maroon', price:45000, longDesc:'Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa.', img:'assets/images/gelpolish-maroon.jpg' },
+      { name:'Blush Pink Nail Art', price:50000, longDesc:'Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih.', img:'assets/images/BlushPinkNailArt.jpg' },
+      { name:'Chrome Nail Art', price:60000, longDesc:'Bold Shine, Modern Luxury.\nEfek chrome berkilau seperti cermin menghadirkan tampilan futuristik dan mewah.', img:'assets/images/chrome.jpg' },
+      { name:'Glitter Nail Art', price:70000, longDesc:'Sparkle with Confidence.\nSentuhan glitter yang memantulkan cahaya memberikan kesan glamor dan hidup.', img:'assets/images/glitter.jpg' },
+      { name:'Floral Nail Art', price:75000, longDesc:'Graceful, Feminine, Romantic.\nMotif bunga dengan detail halus menghadirkan nuansa lembut dan romantis.', img:'assets/images/floral.jpg' },
+      { name:'Marble Nail Art', price:80000, longDesc:'Art Inspired by Nature.\nDesain marmer eksklusif dengan alur artistik menciptakan kesan mewah.', img:'assets/images/marble.jpg' },
+      { name:'3D Nail Art', price:150000, longDesc:'Statement of Glamour.\nDetail tiga dimensi seperti mutiara dan charms.', img:'assets/images/3d.jpg' },
+      { name:'Cat Eye Nail Art', price:140000, longDesc:'Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya.', img:'assets/images/cateye.jpg' }
     ];
 
-    const treatments=[
-      { name:'Basic Manicure', price:60000, desc:'Perawatan dasar kuku tangan', longDesc:'Perawatan dasar kuku untuk membersihkan, merapikan...', img:'assets/images/basicmanicure.jpg' },
-      { name:'Russian Manicure', price:180000, desc:'Russian Manicure', longDesc:'Manicure presisi tingkat lanjut...', img:'assets/images/russian.jpg' },
-      { name:'Nail Extension', price:200000, desc:'Nail Extension', longDesc:'Layanan penambahan panjang...', img:'assets/images/nailextension.jpg' },
-      { name:'Pedicure Spa', price:100000, desc:'Pedicure Spa', longDesc:'Perawatan kaki menyeluruh...', img:'assets/images/pedicurespa.jpg' }
+    const treatments = [
+      { name:'Basic Manicure', price:60000, longDesc:'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.', img:'assets/images/basicmanicure.jpg' },
+      { name:'Russian Manicure', price:180000, longDesc:'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.', img:'assets/images/russian.jpg' },
+      { name:'Nail Extension', price:200000, longDesc:'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.', img:'assets/images/nailextension.jpg' },
+      { name:'Pedicure Spa', price:100000, longDesc:'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi dan kesehatan kuku kaki.', img:'assets/images/pedicurespa.jpg' }
     ];
 
-    const storeGrid=document.getElementById('store-grid');
-    const treatmentGrid=document.getElementById('treatment-grid');
+    const storeGrid = document.getElementById('store-grid');
+    const treatmentGrid = document.getElementById('treatment-grid');
 
-    // Tampilkan produk & treatment
-    products.forEach(p=>{
-      storeGrid.innerHTML+=`
+    products.forEach(p => {
+      storeGrid.innerHTML += `
         <div class="card">
           <img src="${p.img}" alt="${p.name}">
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
-          <button onclick="addToCart('${p.name}',${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${p.name}','${p.desc}','${p.longDesc}',${p.price},'${p.img}')">Detail</button>
+          <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
+          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
         </div>`;
     });
 
-    treatments.forEach(t=>{
-      treatmentGrid.innerHTML+=`
+    treatments.forEach(t => {
+      treatmentGrid.innerHTML += `
         <div class="card">
           <img src="${t.img}" alt="${t.name}">
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
-          <button onclick="addToCart('${t.name}',${t.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${t.name}','${t.desc}','${t.longDesc}',${t.price},'${t.img}')">Detail</button>
+          <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
+          <button onclick="showDetail('${t.name}', '${t.longDesc}', ${t.price}, '${t.img}')">Detail</button>
         </div>`;
     });
 
-    // KERANJANG & PEMBAYARAN
-    let cart=JSON.parse(localStorage.getItem('cart'))||[];
-    function addToCart(name,price){cart.push({name,price,paid:false});localStorage.setItem('cart',JSON.stringify(cart));updateCart();alert(name+" berhasil ditambahkan 💅");}
-    function payItem(name,method){cart=cart.map(item=>{if(item.name===name)item.paid=true;return item;});localStorage.setItem('cart',JSON.stringify(cart));updateCart();alert(`Pembayaran via ${method} berhasil ✅`);}
-    function updateCart(){const list=document.getElementById('cart-items');const total=document.getElementById('total');list.innerHTML='';let sum=0;cart.forEach(item=>{const li=document.createElement('li');li.textContent=`${item.paid?"✅ ":""}${item.name} - Rp${item.price.toLocaleString()}`;list.appendChild(li);sum+=item.price;});total.textContent="Total: Rp"+sum.toLocaleString();}
-    function checkout(){if(cart.length===0){alert("Keranjang masih kosong!");return;}window.open('https://www.instagram.com/cafv.nails_','_blank');alert("Kirim pesanan via DM Instagram 💬");cart=[];localStorage.removeItem('cart');updateCart();}
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // POPUP DETAIL
-    function showDetail(name,desc,longDesc,price,img){
-      const popup=document.createElement('div');
-      popup.className='popup';
-      popup.innerHTML=`
+    function addToCart(name, price) {
+      cart.push({ name, price, paid: false });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCart();
+      alert(name + " berhasil ditambahkan ke keranjang 💅");
+    }
+
+    function payItem(name, method) {
+      cart = cart.map(item => { if(item.name === name) item.paid = true; return item; });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCart();
+      alert(`Pembayaran via ${method} berhasil ✅`);
+    }
+
+    function updateCart() {
+      const list = document.getElementById('cart-items');
+      const total = document.getElementById('total');
+      list.innerHTML = '';
+      let sum = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.paid ? "✅ " : ""}${item.name} - Rp${item.price.toLocaleString()}`;
+        list.appendChild(li);
+        sum += item.price;
+      });
+      total.textContent = "Total: Rp" + sum.toLocaleString();
+    }
+
+    function checkout() {
+      if(cart.length === 0) { alert("Keranjang masih kosong!"); return; }
+      window.open('https://www.instagram.com/cafv.nails_','_blank');
+      alert("Kirim pesananmu via DM ke Instagram kami 💬");
+      cart = []; localStorage.removeItem('cart'); updateCart();
+    }
+
+    function showDetail(name, longDesc, price, img) {
+      const popup = document.createElement('div');
+      popup.className = 'popup';
+      popup.innerHTML = `
         <div class="popup-content">
           <img src="${img}" style="width:100%;border-radius:10px;">
           <h3>${name}</h3>
-          <p><b>${desc}</b></p>
           <p>${longDesc.replace(/\n/g,'<br>')}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
-          <button onclick="addToCart('${name}',${price})">Tambah ke Keranjang</button>
+          <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
           <br><br>
-          <button onclick="window.open('https://www.instagram.com/cafv.nails_','_blank')">Pesan via Instagram 💬</button>
-          <br><br>
-          <button onclick="payItem('${name}','BCA')">Bayar via BCA 💳</button>
-          <button onclick="payItem('${name}','OVO')">Bayar via OVO 📲</button>
+          <button onclick="payItem('${name}', 'BCA')">Bayar via BCA 💳</button>
+          <button onclick="payItem('${name}', 'OVO')">Bayar via OVO 📲</button>
           <br><br>
           <button onclick="this.closest('.popup').remove()">Tutup</button>
         </div>`;
