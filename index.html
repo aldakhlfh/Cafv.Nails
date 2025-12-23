@@ -172,10 +172,20 @@
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     function addToCart(name, price) {
-      cart.push({ name, price });
+      cart.push({ name, price, paid: false });
       localStorage.setItem('cart', JSON.stringify(cart));
       updateCart();
       alert(name + " berhasil ditambahkan ke keranjang 💅");
+    }
+
+    function payItem(name, method) {
+      cart = cart.map(item => {
+        if(item.name === name) item.paid = true;
+        return item;
+      });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCart();
+      alert(`Pembayaran via ${method} berhasil ✅`);
     }
 
     function updateCart() {
@@ -185,7 +195,7 @@
       let sum = 0;
       cart.forEach(item => {
         const li = document.createElement('li');
-        li.textContent = item.name + " - Rp" + item.price.toLocaleString();
+        li.textContent = `${item.paid ? "✅ " : ""}${item.name} - Rp${item.price.toLocaleString()}`;
         list.appendChild(li);
         sum += item.price;
       });
@@ -194,7 +204,7 @@
 
     function checkout() {
       if(cart.length === 0) { alert("Keranjang masih kosong!"); return; }
-      window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==','_blank');
+      window.open('https://www.instagram.com/cafv.nails_','_blank');
       alert("Kirim pesananmu via DM ke Instagram kami 💬");
       cart = []; localStorage.removeItem('cart'); updateCart();
     }
@@ -210,11 +220,10 @@
           <p><b>Rp${price.toLocaleString()}</b></p>
           <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
           <br><br>
-          <button onclick="window.open('https://www.instagram.com/cafv.nails_?igsh=MWRna3pmaDlndmszNg==','_blank')">Pesan via Instagram 💬</button>
+          <button onclick="window.open('https://www.instagram.com/cafv.nails_','_blank')">Pesan via Instagram 💬</button>
           <br><br>
-          <!-- Tombol Pembayaran -->
-          <button onclick="window.open('https://link-bca.com', '_blank')">Bayar via BCA 💳</button>
-          <button onclick="window.open('https://link-ovo.com', '_blank')">Bayar via OVO 📲</button>
+          <button onclick="payItem('${name}', 'BCA')">Bayar via BCA 💳</button>
+          <button onclick="payItem('${name}', 'OVO')">Bayar via OVO 📲</button>
           <br><br>
           <button onclick="this.closest('.popup').remove()">Tutup</button>
         </div>`;
