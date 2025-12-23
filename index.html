@@ -28,22 +28,11 @@
   <!-- Fonts & Style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --pink: #f6a8b9;
-      --accent: #f06c88;
-      --light: #fff5f8;
-    }
-
+    :root { --pink:#f6a8b9; --accent:#f06c88; --light:#fff5f8; }
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
     body { background: var(--light); color:#333; overflow-x:hidden; }
 
-    header {
-      position: sticky; top:0; z-index:100;
-      background: var(--pink); padding:15px 30px;
-      display:flex; justify-content:space-between; align-items:center;
-      color:white; box-shadow:0 2px 6px rgba(0,0,0,0.1);
-    }
-
+    header { position: sticky; top:0; z-index:100; background: var(--pink); padding:15px 30px; display:flex; justify-content:space-between; align-items:center; color:white; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
     header h1 { font-weight:600; font-size:20px; }
     nav a { color:white; text-decoration:none; margin-left:20px; font-weight:500; transition:0.3s; }
     nav a:hover { color:#ffe6f0; }
@@ -56,10 +45,7 @@
     h3 { text-align:center; margin-bottom:30px; color: var(--accent); }
 
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .card {
-      background:white; border-radius:15px; overflow:hidden;
-      box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer;
-    }
+    .card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; }
     .card:hover { transform:translateY(-5px); }
     .card img { width:100%; height:200px; object-fit:cover; }
     .card h4 { margin:15px 0 5px; font-weight:600; color:#a24c65; }
@@ -141,9 +127,9 @@
 
   <script>
     const products = [
-      { name: 'Gel Polish Nude', price: 45000, img: 'https://i.pinimg.com/564x/60/b0/6f/60b06fd7e70368bda4697a9b29a47a9c.jpg' },
-      { name: 'Nail Tips Set', price: 35000, img: 'https://i.pinimg.com/564x/6a/44/4f/6a444f55f08a8aeb13b381bc3b01da83.jpg' },
-      { name: 'Cuticle Oil Lemon', price: 25000, img: 'https://i.pinimg.com/564x/31/31/80/3131801cc0b711e47c76e67e58025916.jpg' }
+      { name: 'Gel Polish Nude', price: 45000, desc: 'Gel polish warna nude tahan lama 💅', img: 'https://i.pinimg.com/564x/60/b0/6f/60b06fd7e70368bda4697a9b29a47a9c.jpg' },
+      { name: 'Nail Tips Set', price: 35000, desc: 'Set nail tips lengkap untuk mempercantik kuku', img: 'https://i.pinimg.com/564x/6a/44/4f/6a444f55f08a8aeb13b381bc3b01da83.jpg' },
+      { name: 'Cuticle Oil Lemon', price: 25000, desc: 'Minyak kutikula aroma lemon, membuat kuku sehat', img: 'https://i.pinimg.com/564x/31/31/80/3131801cc0b711e47c76e67e58025916.jpg' }
     ];
 
     const treatments = [
@@ -163,6 +149,7 @@
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
           <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
+          <button onclick="showDetail('${p.name}', '${p.desc}', ${p.price}, '${p.img}')">Detail</button>
         </div>`;
     });
 
