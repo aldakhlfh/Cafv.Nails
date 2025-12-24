@@ -1,219 +1,307 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cafv Nails Studio | Nail Art & Treatment Tangerang</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+<title>Cafv Nails Studio | Nail Art & Treatment Tangerang</title>
 
-  <style>
-    :root { --pink:#f6a8b9; --accent:#f06c88; --light:#fff5f8; --darkpink:#d85775; }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-    body { background:var(--light); }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 
-    header {
-      position:sticky; top:0; z-index:100;
-      background:var(--pink);
-      padding:15px 30px;
-      display:flex; justify-content:space-between; align-items:center;
-      color:white;
-    }
+<style>
+:root{
+--pink:#f6a8b9;
+--accent:#f06c88;
+--light:#fff5f8;
+--darkpink:#d85775;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{background:var(--light);color:#333}
 
-    nav a { margin-left:20px; color:#d94b8c; text-decoration:none; font-weight:500; }
-    nav a:hover { color:var(--darkpink); }
+header{
+position:sticky;top:0;z-index:10;
+background:var(--pink);
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white
+}
+nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+font-weight:500
+}
 
-    .hero {
-      text-align:center;
-      padding:70px 20px;
-      background:linear-gradient(180deg,var(--pink),var(--darkpink));
-      color:white;
-    }
+.hero{
+background:linear-gradient(180deg,var(--pink),var(--darkpink));
+color:white;
+text-align:center;
+padding:70px 20px
+}
 
-    section { padding:40px 20px; max-width:1100px; margin:auto; }
-    h3 { text-align:center; margin-bottom:30px; color:var(--accent); }
+section{
+padding:40px 20px;
+max-width:1100px;
+margin:auto
+}
+h3{
+text-align:center;
+color:var(--accent);
+margin-bottom:25px
+}
 
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
+}
 
-    .card {
-      background:var(--pink);
-      border-radius:15px;
-      overflow:hidden;
-      text-align:center;
-      box-shadow:0 4px 8px rgba(0,0,0,.1);
-    }
+.card{
+background:var(--pink);
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 4px 8px rgba(0,0,0,.1);
+text-align:center
+}
+.card img{
+width:100%;
+height:200px;
+object-fit:cover
+}
+.card h4{
+margin:10px 0;
+color:var(--darkpink)
+}
+.card p{font-size:14px}
+.card button{
+margin:5px;
+padding:8px 12px;
+border:none;
+border-radius:8px;
+background:var(--accent);
+color:white;
+cursor:pointer
+}
 
-    .card img { width:100%; height:200px; object-fit:cover; }
-    .card h4 { margin:15px 0 5px; color:var(--darkpink); }
-    .card p { font-size:14px; }
+#cart{
+margin-top:30px;
+background:var(--pink);
+padding:20px;
+border-radius:15px
+}
+#cart ul{list-style:none}
+#cart li{
+display:flex;
+justify-content:space-between;
+border-bottom:1px solid var(--darkpink);
+padding:5px 0
+}
 
-    .card button {
-      background:var(--accent);
-      color:white;
-      border:none;
-      padding:8px 15px;
-      border-radius:8px;
-      margin:5px;
-      cursor:pointer;
-      width:45%;
-    }
+.popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999
+}
+.popup-content{
+background:var(--pink);
+padding:20px;
+border-radius:15px;
+max-width:400px;
+width:100%;
+color:white;
+text-align:center
+}
+.popup-content img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px
+}
 
-    #cart {
-      background:var(--pink);
-      border-radius:15px;
-      padding:20px;
-      margin-top:30px;
-    }
-
-    footer {
-      text-align:center;
-      background:var(--pink);
-      color:white;
-      padding:20px;
-      margin-top:40px;
-    }
-
-    .popup {
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.5);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      z-index:999;
-    }
-
-    .popup-content {
-      background:var(--pink);
-      padding:20px;
-      border-radius:15px;
-      max-width:400px;
-      color:white;
-      max-height:90vh;
-      overflow:auto;
-    }
-  </style>
+footer{
+margin-top:40px;
+background:var(--pink);
+color:white;
+text-align:center;
+padding:20px
+}
+</style>
 </head>
 
 <body>
 
 <!-- LOGIN -->
-<div class="popup" id="login-popup">
-  <div class="popup-content" style="text-align:center">
-    <h3>Selamat Datang di Cafv Nails Studio 💅</h3>
-    <p>Klik "Lanjutkan" untuk mengakses semua fitur.</p>
+<div class="popup" id="loginPopup">
+  <div class="popup-content">
+    <h3>Selamat Datang di Cafv Nails 💅</h3>
+    <p>Klik lanjutkan untuk masuk</p>
     <button onclick="closeLogin()">Lanjutkan</button>
   </div>
 </div>
 
 <header>
-  <h1>Cafv Nails Studio 💅</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#katalog">Store</a>
-    <a href="#treatment">Treatment</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
+<h1>Cafv Nails Studio 💅</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#katalog">Store</a>
+<a href="#treatment">Treatment</a>
+<a href="#kontak">Kontak</a>
+</nav>
 </header>
 
 <section class="hero" id="home">
-  <h2>Selamat Datang di Cafv Nails Studio</h2>
-  <p>Tempat terbaik untuk perawatan kuku dan nail art di Tangerang ✨</p>
+<h2>Cafv Nails Studio</h2>
+<p>Nail Art & Treatment Tangerang</p>
 </section>
 
 <section id="katalog">
-  <h3>🛍️ Katalog Nail Art</h3>
-  <div class="grid" id="store-grid"></div>
+<h3>🛍️ Nail Art</h3>
+<div class="grid" id="storeGrid"></div>
 </section>
 
 <section id="treatment">
-  <h3>💖 Treatment Nails</h3>
-  <div class="grid" id="treatment-grid"></div>
+<h3>💖 Treatment</h3>
+<div class="grid" id="treatmentGrid"></div>
 
-  <div id="cart">
-    <h3>🛒 Keranjang</h3>
-    <ul id="cart-items"></ul>
-    <p id="total">Total: Rp0</p>
-    <button onclick="checkout()">Checkout</button>
-  </div>
+<div id="cart">
+<h3>🛒 Keranjang</h3>
+<ul id="cartItems"></ul>
+<p id="total">Total: Rp0</p>
+<button onclick="checkout()">Checkout</button>
+</div>
 </section>
 
 <section id="kontak">
-  <h3>📞 Kontak</h3>
-  <p>📍 Tangerang</p>
-  <p>📞 <a href="https://wa.me/6281234567345">0812-3456-7345</a></p>
+<h3>📞 Kontak</h3>
+<p>📍 Tangerang</p>
+<p>📲 WhatsApp:
+<a href="https://wa.me/6281234567345" target="_blank">0812-3456-7345</a>
+</p>
+<p>📸 Instagram:
+<a href="https://www.instagram.com/cafv.nails_" target="_blank">@cafv.nails_</a>
+</p>
 </section>
 
 <footer>
-  © 2025 Cafv Nails Studio 💅
+<p>© 2025 Cafv Nails Studio</p>
 </footer>
 
 <script>
-function closeLogin(){ document.getElementById('login-popup').style.display='none'; }
+function closeLogin(){
+document.getElementById("loginPopup").remove();
+}
 
-const products = [
- {name:"Gel Polish Maroon",price:45000,img:"img/maroonpolos.jpg"},
- {name:"Blush Pink Nail Art",price:50000,img:"img/Blushpink.jpg"},
- {name:"Chrome Nail Art",price:60000,img:"img/chrome.jpg"},
- {name:"Glitter Nail Art",price:70000,img:"img/gliter.jpg"}
+const products=[
+{name:"Gel Polish Maroon",price:45000,img:"img/maroonpolos.jpg"},
+{name:"Blush Pink Nail Art",price:50000,img:"img/blushpink.jpg"},
+{name:"Chrome Nail Art",price:60000,img:"img/chrome.jpg"},
+{name:"Glitter Nail Art",price:70000,img:"img/glitter.jpg"},
+{name:"Floral Nail Art",price:75000,img:"img/floral.jpg"},
+{name:"Marble Nail Art",price:80000,img:"img/marble.jpg"},
+{name:"3D Nail Art",price:150000,img:"img/3d.jpg"},
+{name:"Cat Eye Nail Art",price:140000,img:"img/cateye.jpg"}
 ];
 
-const treatments = [
- {name:"Basic Manicure",price:60000,longDesc:"Perawatan dasar kuku.",img:"img/basicmanicure.jpg"},
- {name:"Russian Manicure",price:180000,longDesc:"Teknik presisi profesional.",img:"img/russian.jpg"},
- {name:"Nail Extension",price:200000,longDesc:"Penambahan panjang kuku.",img:"img/nailextension.jpg"},
- {name:"Pedicure Spa",price:100000,longDesc:"Perawatan kaki menyeluruh.",img:"img/pedicurespa.jpg"}
+const treatments=[
+{name:"Basic Manicure",price:60000,img:"img/basicmanicure.jpg"},
+{name:"Russian Manicure",price:180000,img:"img/russian.jpg"},
+{name:"Nail Extension",price:200000,img:"img/nailextension.jpg"},
+{name:"Pedicure Spa",price:100000,img:"img/pedicurespa.jpg"}
 ];
 
-const storeGrid=document.getElementById('store-grid');
-const treatmentGrid=document.getElementById('treatment-grid');
+const storeGrid=document.getElementById("storeGrid");
+const treatmentGrid=document.getElementById("treatmentGrid");
 
 products.forEach(p=>{
- storeGrid.innerHTML+=`
- <div class="card">
-  <img src="${p.img}" onerror="this.src='img/default.jpg'">
-  <h4>${p.name}</h4>
-  <p>Rp${p.price.toLocaleString()}</p>
-  <button onclick="addToCart('${p.name}',${p.price})">Tambah</button>
- </div>`;
+storeGrid.innerHTML+=`
+<div class="card">
+<img src="${p.img}">
+<h4>${p.name}</h4>
+<p>Rp${p.price.toLocaleString()}</p>
+<button onclick="addToCart('${p.name}',${p.price})">Tambah</button>
+<button onclick="detail('${p.name}',${p.price},'${p.img}')">Detail</button>
+</div>`;
 });
 
 treatments.forEach(t=>{
- treatmentGrid.innerHTML+=`
- <div class="card">
-  <img src="${t.img}" onerror="this.src='img/default.jpg'">
-  <h4>${t.name}</h4>
-  <p>Rp${t.price.toLocaleString()}</p>
-  <button onclick="addToCart('${t.name}',${t.price})">Tambah</button>
-  <button onclick="showDetail('${t.name}','${t.longDesc}',${t.price},'${t.img}')">Detail</button>
- </div>`;
+treatmentGrid.innerHTML+=`
+<div class="card">
+<img src="${t.img}">
+<h4>${t.name}</h4>
+<p>Rp${t.price.toLocaleString()}</p>
+<button onclick="addToCart('${t.name}',${t.price})">Tambah</button>
+<button onclick="detail('${t.name}',${t.price},'${t.img}')">Detail</button>
+</div>`;
 });
 
-let cart=[];
-function addToCart(n,p){ cart.push({n,p}); updateCart(); }
-function updateCart(){
- let list=document.getElementById('cart-items'), sum=0;
- list.innerHTML='';
- cart.forEach(i=>{ sum+=i.p; list.innerHTML+=`<li>${i.n} - Rp${i.p.toLocaleString()}</li>`; });
- document.getElementById('total').textContent="Total: Rp"+sum.toLocaleString();
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+function addToCart(name,price){
+cart.push({name,price});
+localStorage.setItem("cart",JSON.stringify(cart));
+renderCart();
 }
 
-function showDetail(n,d,p,i){
- const pop=document.createElement('div');
- pop.className='popup';
- pop.innerHTML=`
- <div class="popup-content">
-  <img src="${i}" onerror="this.src='img/default.jpg'" style="width:100%">
-  <h3>${n}</h3><p>${d}</p><p><b>Rp${p.toLocaleString()}</b></p>
-  <button onclick="addToCart('${n}',${p})">Tambah</button>
-  <button onclick="this.closest('.popup').remove()">Tutup</button>
- </div>`;
- document.body.appendChild(pop);
+function renderCart(){
+const ul=document.getElementById("cartItems");
+const total=document.getElementById("total");
+ul.innerHTML="";
+let sum=0;
+cart.forEach(i=>{
+ul.innerHTML+=`<li>${i.name}<span>Rp${i.price.toLocaleString()}</span></li>`;
+sum+=i.price;
+});
+total.innerText="Total: Rp"+sum.toLocaleString();
 }
+
+function detail(name,price,img){
+const pop=document.createElement("div");
+pop.className="popup";
+pop.innerHTML=`
+<div class="popup-content">
+<img src="${img}">
+<h3>${name}</h3>
+<p><b>Rp${price.toLocaleString()}</b></p>
+<button onclick="addToCart('${name}',${price})">Tambah ke Keranjang</button><br><br>
+<button onclick="checkout()">Checkout</button><br><br>
+<button onclick="this.closest('.popup').remove()">Tutup</button>
+</div>`;
+document.body.appendChild(pop);
+}
+
+function checkout(){
+if(cart.length===0){alert("Keranjang kosong!");return;}
+const pop=document.createElement("div");
+pop.className="popup";
+pop.innerHTML=`
+<div class="popup-content">
+<h3>Checkout</h3>
+<p>Total: <b>Rp${cart.reduce((a,b)=>a+b.price,0).toLocaleString()}</b></p>
+<button onclick="pay('BCA')">BCA</button>
+<button onclick="pay('Mandiri')">Mandiri</button>
+<button onclick="pay('OVO')">OVO</button>
+<button onclick="pay('DANA')">DANA</button>
+<p>Atau DM Instagram:</p>
+<a href="https://www.instagram.com/cafv.nails_" target="_blank" style="color:white;font-weight:bold">@cafv.nails_</a><br><br>
+<button onclick="this.closest('.popup').remove()">Tutup</button>
+</div>`;
+document.body.appendChild(pop);
+}
+
+function pay(m){
+alert("Pembayaran via "+m+" berhasil ✅");
+cart=[];
+localStorage.removeItem("cart");
+renderCart();
+document.querySelector(".popup").remove();
+}
+
+renderCart();
 </script>
 
 </body>
