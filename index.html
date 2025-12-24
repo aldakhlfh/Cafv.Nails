@@ -5,26 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Cafv Nails Studio | Nail Art & Treatment Tangerang</title>
-  <meta name="description" content="Cafv Nails Studio menyediakan layanan nail art dan nail treatment berkualitas di Tangerang untuk mahasiswa dan umum.">
-  <meta name="keywords" content="nail art tangerang, nail treatment, cafv nails studio">
-  <meta name="author" content="Alda Kholifah">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BeautySalon",
-    "name": "Cafv Nails Studio",
-    "url": "https://aldakhlfh.github.io/Cafv.Nails/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Tangerang",
-      "addressCountry": "ID"
-    },
-    "sameAs": [
-      "https://www.instagram.com/cafv.nails_"
-    ]
-  }
-  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 
@@ -101,12 +81,13 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero" id="home">
     <h2>Selamat Datang di Cafv Nails Studio</h2>
     <p>Tempat terbaik untuk perawatan kuku dan nail art di Tangerang ✨</p>
   </section>
 
-  <!-- STORE (KATALOG) -->
+  <!-- STORE -->
   <section id="katalog">
     <h3>🛍️ Katalog Nail Art</h3>
     <div class="grid" id="store-grid"></div>
@@ -115,8 +96,6 @@
   <!-- TREATMENT -->
   <section id="treatment">
     <h3>💖 Treatment Nails</h3>
-
-   
     <div class="grid" id="treatment-grid"></div>
 
     <div id="cart">
@@ -146,30 +125,30 @@
     </div>
   </footer>
 
+  <!-- JAVASCRIPT -->
   <script>
     function closeLogin() { document.getElementById('login-popup').style.display='none'; }
 
+    // NAIL ART DENGAN IMAGE PLACEHOLDER ONLINE
     const products = [
-      { name: "Gel Polish Polos – Maroon", price: 45000, longDesc: "Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa.", img: "maroonpolos.jpg" },
-      { name: "Blush Pink Nail Art", price: 50000, longDesc: "Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih.", img: "Blushpink.jpg" },
-      { name: "Chrome Nail Art", price: 60000, longDesc: "Bold Shine, Modern Luxury.\nEfek chrome berkilau seperti cermin menghadirkan tampilan futuristik dan mewah.", img: "chrome.jpg" },
-      { name: "Glitter Nail Art", price: 70000, longDesc: "Sparkle with Confidence.\nSentuhan glitter yang memantulkan cahaya memberikan kesan glamor dan hidup.", img: "gliter.jpg" },
-      { name: "Floral Nail Art", price: 75000, longDesc: "Graceful, Feminine, Romantic.\nMotif bunga yang dirancang dengan detail halus menghadirkan nuansa lembut dan romantis.", img: "Floral.jpg" },
-      { name: "Marble Nail Art", price: 80000, longDesc: "Art Inspired by Nature.\nDesain marmer eksklusif dengan alur artistik menciptakan kesan mewah dan sophisticated.", img: "marble.jpg" },
-      { name: "3D Nail Art", price: 150000, longDesc: "Statement of Glamour.\nDetail tiga dimensi seperti mutiara dan charms menghadirkan tampilan dramatis dan eksklusif.", img: "3D.jpg" },
-      { name: "Cat Eye Nail Art", price: 140000, longDesc: "Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya menciptakan tampilan elegan dan memikat.", img: "Cateye.jpg" }
+      { name: "Gel Polish Polos – Maroon", price: 45000, longDesc: "Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa.", img: "https://via.placeholder.com/300x200/8B0000/fff?text=Gel+Polish+Maroon" },
+      { name: "Blush Pink Nail Art", price: 50000, longDesc: "Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih.", img: "https://via.placeholder.com/300x200/FFC0CB/fff?text=Blush+Pink" },
+      { name: "Chrome Nail Art", price: 60000, longDesc: "Bold Shine, Modern Luxury.\nEfek chrome berkilau seperti cermin menghadirkan tampilan futuristik dan mewah.", img: "https://via.placeholder.com/300x200/C0C0C0/fff?text=Chrome" },
+      { name: "Glitter Nail Art", price: 70000, longDesc: "Sparkle with Confidence.\nSentuhan glitter yang memantulkan cahaya memberikan kesan glamor dan hidup.", img: "https://via.placeholder.com/300x200/FFD700/fff?text=Glitter" }
     ];
 
+    // TREATMENT
     const treatments = [
-      { name: 'Basic Manicure', price: 60000, longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.', img: 'basicmanicure.jpg' },
-      { name: 'Russian Manicure', price: 180000, longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.', img: 'russian.jpg' },
-      { name: 'Nail Extension', price: 200000, longDesc: 'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.', img: 'nailextension.jpg' },
-      { name: 'Pedicure Spa', price: 100000, longDesc: 'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi.', img: 'pedicurespa.jpg' }
+      { name: 'Basic Manicure', price: 60000, longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.', img: 'https://via.placeholder.com/300x200/FFB6C1/fff?text=Basic+Manicure' },
+      { name: 'Russian Manicure', price: 180000, longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.', img: 'https://via.placeholder.com/300x200/DB7093/fff?text=Russian+Manicure' },
+      { name: 'Nail Extension', price: 200000, longDesc: 'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.', img: 'https://via.placeholder.com/300x200/FF69B4/fff?text=Nail+Extension' },
+      { name: 'Pedicure Spa', price: 100000, longDesc: 'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi.', img: 'https://via.placeholder.com/300x200/FFC0CB/fff?text=Pedicure+Spa' }
     ];
 
     const storeGrid = document.getElementById('store-grid');
     const treatmentGrid = document.getElementById('treatment-grid');
 
+    // Render Nail Art
     products.forEach(p => {
       storeGrid.innerHTML += `
         <div class="card">
@@ -181,6 +160,7 @@
         </div>`;
     });
 
+    // Render Treatment
     treatments.forEach(t => {
       treatmentGrid.innerHTML += `
         <div class="card">
@@ -192,11 +172,11 @@
         </div>`;
     });
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // CART SYSTEM
+    let cart = [];
 
     function addToCart(name, price) {
       cart.push({ name, price });
-      localStorage.setItem('cart', JSON.stringify(cart));
       updateCart();
       alert(name + " berhasil ditambahkan ke keranjang 💅");
     }
@@ -229,7 +209,7 @@
             <button onclick="payAll('OVO')">Bayar via OVO 📲</button>
             <button onclick="payAll('DANA')">Bayar via DANA 📲</button>
           </div>
-          <p>Atau hubungi kami di Instagram untuk info lebih lanjut:</p>
+          <p>Atau hubungi kami di Instagram:</p>
           <a href="https://www.instagram.com/cafv.nails_" target="_blank" style="color:#fff; font-weight:bold;">@cafv.nails_ 💬</a>
           <br><br>
           <button onclick="this.closest('.popup').remove()">Tutup</button>
@@ -240,7 +220,6 @@
     function payAll(method){
       alert(`Pembayaran via ${method} berhasil ✅`);
       cart = [];
-      localStorage.removeItem('cart');
       updateCart();
       document.querySelector('.popup').remove();
     }
@@ -262,18 +241,6 @@
         </div>`;
       document.body.appendChild(popup);
     }
-
-    updateCart();
   </script>
-</body>
-<!-- Treatment Nails Section -->
-<section id="treatment-nails" style="text-align:center; margin-top:50px;">
-  <h2>💖 Treatment Nails</h2>
-
-  <!-- INI WAJIB, JANGAN DIUBAH ID-NYA -->
-  <div class="treatment-container" id="treatmentList"></div>
-</section>
-</html>
-<script src="assets/js/scripts.js"></script>
 </body>
 </html>
