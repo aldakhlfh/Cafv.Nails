@@ -173,59 +173,34 @@
     img: "Cateye.jpg"
   }
 ];
-
-    const treatments = [
+const treatments = [
   {
     name: 'Basic Manicure',
     price: 60000,
     longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.',
-    img: 'assets/img/treatment/basicmanicure.jpg'
+    img: 'assets/img/basicmanicure.jpg'
   },
   {
     name: 'Russian Manicure',
     price: 180000,
-    longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.',
-    img: 'assets/img/treatment/russian-manicure.jpg'
+    longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus.',
+    img: 'assets/img/russian.jpg'
   },
   {
     name: 'Nail Extension',
     price: 200000,
-    longDesc: 'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.',
-    img: 'assets/img/treatment/nail-extension.jpg'
+    longDesc: 'Layanan penambahan panjang dan pembentukan kuku.',
+    img: 'assets/img/nailextension.jpg'
   },
   {
     name: 'Pedicure Spa',
     price: 100000,
-    longDesc: 'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi.',
-    img: 'assets/img/treatment/pedicure-spa.jpg'
+    longDesc: 'Perawatan kaki menyeluruh dengan spa treatment.',
+    img: 'assets/img/pedicurespa.jpg'
   }
 ];
 
-    const storeGrid = document.getElementById('store-grid');
-    const treatmentGrid = document.getElementById('treatment-grid');
-
-    products.forEach(p => {
-      storeGrid.innerHTML += `
-        <div class="card">
-          <img src="${p.img}" alt="${p.name}">
-          <h4>${p.name}</h4>
-          <p>Rp${p.price.toLocaleString()}</p>
-          <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
-        </div>`;
-    });
-
-    treatments.forEach(t => {
-      treatmentGrid.innerHTML += `
-        <div class="card">
-          <img src="${t.img}" alt="${t.name}">
-          <h4>${t.name}</h4>
-          <p>Rp${t.price.toLocaleString()}</p>
-          <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${t.name}', '${t.longDesc}', ${t.price}, '${t.img}')">Detail</button>
-        </div>`;
-    });
-
+    
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     function addToCart(name, price) {
