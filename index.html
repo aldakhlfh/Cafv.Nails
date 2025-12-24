@@ -39,7 +39,7 @@
     .popup{position:fixed;top:0;left:0;right:0;bottom:0;
       background:rgba(0,0,0,.5);display:flex;justify-content:center;align-items:center}
     .popup-content{background:white;padding:20px;border-radius:15px;
-      max-width:400px;width:90%}
+      max-width:400px;width:90%;overflow-y:auto;max-height:90vh}
   </style>
 </head>
 
@@ -64,7 +64,7 @@
 
 <section class="hero" id="home">
   <h2>Selamat Datang di Cafv Nails Studio</h2>
-  <p>Tempat terbaik untuk nail art & perawatan kuku ✨</p>
+  <p>Tempat terbaik untuk perawatan kuku dan nail art ✨</p>
 </section>
 
 <section id="katalog">
@@ -77,82 +77,62 @@
   <div class="grid" id="treatment-grid"></div>
 
   <div id="cart">
-    <h3>🛒 Keranjang Belanja</h3>
+    <h3>🛒 Keranjang</h3>
     <ul id="cart-items"></ul>
     <p id="total">Total: Rp0</p>
     <button onclick="checkout()">Checkout</button>
   </div>
 </section>
 
-<section id="kontak">
-  <h3>📞 Kontak Kami</h3>
-  <p>📍 Tangerang</p>
-  <p>📞 <a href="https://wa.me/6281234567345">WhatsApp</a></p>
-</section>
-
 <footer>© 2025 Cafv Nails Studio 💅</footer>
 
 <script>
-function closeLogin(){document.getElementById('login-popup').style.display='none'}
-
 const products = [
- {name:'Gel Polish Polos – Maroon',price:45000,img:'assets/img/maroonpolos.jpg'},
- {name:'Blush Pink Nail Art',price:50000,img:'assets/img/Blushpink.jpg'},
- {name:'Chrome Nail Art',price:60000,img:'assets/img/chrome.jpg'},
- {name:'Glitter Nail Art',price:70000,img:'assets/img/gliter.jpg'},
- {name:'Floral Nail Art',price:75000,img:'assets/img/Floral.jpg'},
- {name:'Marble Nail Art',price:80000,img:'assets/img/marble.jpg'},
- {name:'3D Nail Art',price:150000,img:'assets/img/3D.jpg'},
- {name:'Cat Eye Nail Art',price:140000,img:'assets/img/Cateye.jpg'}
+ { name:'Gel Polish Polos – Maroon', price:45000, img:'assets/img/maroonpolos.jpg' },
+ { name:'Blush Pink Nail Art', price:50000, img:'assets/img/Blushpink.jpg' },
+ { name:'Chrome Nail Art', price:60000, img:'assets/img/chrome.jpg' },
+ { name:'Glitter Nail Art', price:70000, img:'assets/img/gliter.jpg' },
+ { name:'Floral Nail Art', price:75000, img:'assets/img/Floral.jpg' },
+ { name:'Marble Nail Art', price:80000, img:'assets/img/marble.jpg' },
+ { name:'3D Nail Art', price:150000, img:'assets/img/3D.jpg' },
+ { name:'Cat Eye Nail Art', price:140000, img:'assets/img/Cateye.jpg' }
 ];
 
 const treatments = [
- {name:'Basic Manicure',price:60000,img:'assets/img/Treatment1.jpg'},
- {name:'Russian Manicure',price:180000,img:'assets/img/Treatment2.jpg'},
- {name:'Nail Extension',price:200000,img:'assets/img/Treatment3.jpg'},
- {name:'Pedicure Spa',price:100000,img:'assets/img/Treatment4.jpg'}
+ { name:'Basic Manicure', price:60000, img:'assets/img/Treatment1.jpg' },
+ { name:'Russian Manicure', price:180000, img:'assets/img/Treatment2.jpg' },
+ { name:'Nail Extension', price:200000, img:'assets/img/Treatment3.jpg' },
+ { name:'Pedicure Spa', price:100000, img:'assets/img/Treatment4.jpg' }
 ];
 
-let cart=[];
+const storeGrid=document.getElementById('store-grid');
+const treatmentGrid=document.getElementById('treatment-grid');
 
 function render(data,target){
-  target.innerHTML='';
-  data.forEach(i=>{
-    target.innerHTML+=`
-    <div class="card">
-      <img src="${i.img}">
-      <h4>${i.name}</h4>
-      <p>Rp${i.price.toLocaleString()}</p>
-      <button onclick="addToCart('${i.name}',${i.price})">Tambah</button>
-    </div>`;
-  });
+ data.forEach(i=>{
+  target.innerHTML+=`
+  <div class="card">
+    <img src="${i.img}">
+    <h4>${i.name}</h4>
+    <p>Rp${i.price.toLocaleString()}</p>
+    <button onclick="addToCart('${i.name}',${i.price})">Tambah</button>
+  </div>`;
+ });
 }
 
-function addToCart(name,price){
-  cart.push({name,price});
-  updateCart();
-}
-
+let cart=[];
+function addToCart(name,price){cart.push({name,price});updateCart();}
 function updateCart(){
-  const list=document.getElementById('cart-items');
-  const total=document.getElementById('total');
-  list.innerHTML='';
-  let sum=0;
-  cart.forEach(i=>{
-    list.innerHTML+=`<li>${i.name}<span>Rp${i.price.toLocaleString()}</span></li>`;
-    sum+=i.price;
-  });
-  total.textContent='Total: Rp'+sum.toLocaleString();
+ const list=document.getElementById('cart-items');
+ const total=document.getElementById('total');
+ list.innerHTML='';let sum=0;
+ cart.forEach(i=>{list.innerHTML+=`<li>${i.name} Rp${i.price.toLocaleString()}</li>`;sum+=i.price});
+ total.textContent='Total: Rp'+sum.toLocaleString();
 }
+function checkout(){alert('Checkout berhasil 💅');cart=[];updateCart();}
 
-function checkout(){
-  alert('Checkout berhasil 💅');
-  cart=[];
-  updateCart();
-}
-
-render(products,document.getElementById('store-grid'));
-render(treatments,document.getElementById('treatment-grid'));
+render(products,storeGrid);
+render(treatments,treatmentGrid);
 </script>
 
 </body>
