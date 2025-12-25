@@ -46,7 +46,7 @@
     h3 { text-align:center; margin-bottom:30px; color: var(--accent); }
 
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; padding:10px; }
+    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; }
     .card:hover { transform:translateY(-5px); }
     .card img { width:100%; height:200px; object-fit:cover; }
     .card h4 { margin:15px 0 5px; font-weight:600; color:var(--darkpink); }
@@ -114,7 +114,7 @@
 
   <!-- TREATMENT -->
   <section id="treatment">
-    <h3>💖 Pilihan Treatment</h3>
+    <h3>💖 Pilihan Treatment Nails</h3>
     <div class="grid" id="treatment-grid"></div>
 
     <div id="cart">
@@ -147,7 +147,6 @@
   <script>
     function closeLogin() { document.getElementById('login-popup').style.display='none'; }
 
-    // Data Nail Art (dengan gambar)
     const products = [
       { name: "Gel Polish Polos – Maroon", price: 45000, longDesc: "Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa.", img: "maroonpolos.jpg" },
       { name: "Blush Pink Nail Art", price: 50000, longDesc: "Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih.", img: "Blushpink.jpg" },
@@ -159,7 +158,6 @@
       { name: "Cat Eye Nail Art", price: 140000, longDesc: "Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya menciptakan tampilan elegan dan memikat.", img: "Cateye.jpg" }
     ];
 
-    // Data Treatment (tanpa gambar)
     const treatments = [
       { name: 'Basic Manicure', price: 60000, longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.' },
       { name: 'Russian Manicure', price: 180000, longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.' },
@@ -170,19 +168,19 @@
     const storeGrid = document.getElementById('store-grid');
     const treatmentGrid = document.getElementById('treatment-grid');
 
-    // Render Nail Art
+    // Katalog Nail Art (ada gambar)
     products.forEach(p => {
       storeGrid.innerHTML += `
         <div class="card">
-          <img src="${p.img}" alt="${p.name}">
+          <img src="asset/img/${p.img}" alt="${p.name}">
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
           <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetailByIndex(${products.indexOf(p)})">Detail</button>
+          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
         </div>`;
     });
 
-    // Render Treatment (tanpa gambar)
+    // Treatment (tidak ada gambar, tapi detail muncul)
     treatments.forEach(t => {
       treatmentGrid.innerHTML += `
         <div class="card">
@@ -246,13 +244,12 @@
       document.querySelector('.popup').remove();
     }
 
-    // Popup Detail Nail Art (dengan gambar)
     function showDetail(name, longDesc, price, img){
       const popup = document.createElement('div');
       popup.className = 'popup';
       popup.innerHTML = `
         <div class="popup-content">
-          <img src="${img}" style="width:100%;border-radius:10px;">
+          <img src="asset/img/${img}" style="width:100%;border-radius:10px;">
           <h3>${name}</h3>
           <p>${longDesc.replace(/\n/g,'<br>')}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
@@ -265,14 +262,13 @@
       document.body.appendChild(popup);
     }
 
-    // Popup Detail Treatment (tanpa gambar)
     function showTreatmentDetail(name, longDesc, price){
       const popup = document.createElement('div');
       popup.className = 'popup';
       popup.innerHTML = `
         <div class="popup-content">
           <h3>${name}</h3>
-          <p>${longDesc}</p>
+          <p>${longDesc.replace(/\n/g,'<br>')}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
           <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
           <br><br>
@@ -285,6 +281,5 @@
 
     updateCart();
   </script>
-
 </body>
 </html>
