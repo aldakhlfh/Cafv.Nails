@@ -114,9 +114,7 @@
 
   <!-- TREATMENT -->
   <section id="treatment">
-    <h3>💖 Treatment Nails</h3>
-
-   
+    <h3>💖 Pilihan Treatment</h3>
     <div class="grid" id="treatment-grid"></div>
 
     <div id="cart">
@@ -160,32 +158,12 @@
       { name: "Cat Eye Nail Art", price: 140000, longDesc: "Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya menciptakan tampilan elegan dan memikat.", img: "Cateye.jpg" }
     ];
 
-      const treatments = [
-  { 
-    name: 'Basic Manicure', 
-    price: 60000, 
-    longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.', 
-    img2: 'BasicManicure.jpg' 
-  },
-  { 
-    name: 'Russian Manicure', 
-    price: 180000, 
-    longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.', 
-    img2: 'RussianManicure.jpg' 
-  },
-  { 
-    name: 'Nail Extension', 
-    price: 200000, 
-    longDesc: 'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.', 
-    img2: 'NailExstension.jpg' 
-  },
-  { 
-    name: 'Pedicure Spa', 
-    price: 100000, 
-    longDesc: 'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi.', 
-    img2: 'PedicureSpa.jpg' 
-  }
-];
+    const treatments = [
+      { name: 'Basic Manicure', price: 60000 },
+      { name: 'Russian Manicure', price: 180000 },
+      { name: 'Nail Extension', price: 200000 },
+      { name: 'Pedicure Spa', price: 100000 }
+    ];
 
     const storeGrid = document.getElementById('store-grid');
     const treatmentGrid = document.getElementById('treatment-grid');
@@ -204,11 +182,9 @@
     treatments.forEach(t => {
       treatmentGrid.innerHTML += `
         <div class="card">
-          <img src="${t.img}" alt="${t.name}">
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
           <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${t.name}', '${t.longDesc}', ${t.price}, '${t.img}')">Detail</button>
         </div>`;
     });
 
@@ -286,5 +262,4 @@
     updateCart();
   </script>
 </body>
-
 </html>
