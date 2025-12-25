@@ -108,7 +108,7 @@
 
   <!-- STORE (KATALOG) -->
   <section id="katalog">
-    <h3>🛍 Katalog Nail Art</h3>
+    <h3>🛍️ Katalog Nail Art</h3>
     <div class="grid" id="store-grid"></div>
   </section>
 
@@ -178,7 +178,7 @@
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
           <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${p.name}', \${p.longDesc}\, ${p.price}, '${p.img}')">Detail</button>
+          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
         </div>`;
     });
 
@@ -189,7 +189,7 @@
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
           <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
-          <button onclick="showTreatmentDetail('${t.name}', \${t.longDesc}\, ${t.price})">Detail</button>
+          <button onclick="showTreatmentDetail('${t.name}', '${t.longDesc}', ${t.price})">Detail</button>
         </div>`;
     });
 
@@ -231,7 +231,7 @@
             <button onclick="payAll('DANA')">Bayar via DANA 📲</button>
           </div>
           <p>Atau hubungi kami di Instagram untuk info lebih lanjut:</p>
-          <a href="https://www.instagram.com/cafv.nails_" target="blank" style="color:#fff; font-weight:bold;">@cafv.nails 💬</a>
+          <a href="https://www.instagram.com/cafv.nails_" target="_blank" style="color:#fff; font-weight:bold;">@cafv.nails_ 💬</a>
           <br><br>
           <button onclick="this.closest('.popup').remove()">Tutup</button>
         </div>`;
@@ -239,23 +239,22 @@
     }
 
     function payAll(method){
-      alert(Pembayaran via ${method} berhasil ✅);
+      alert(`Pembayaran via ${method} berhasil ✅`);
       cart = [];
       localStorage.removeItem('cart');
       updateCart();
       document.querySelector('.popup').remove();
     }
 
-    // Popup Detail Nail Art (dengan gambar dan deskripsi lengkap)
+    // Popup Detail Nail Art (dengan gambar)
     function showDetail(name, longDesc, price, img){
       const popup = document.createElement('div');
       popup.className = 'popup';
-      const formattedDesc = longDesc.replace(/\n/g,'<br>');
       popup.innerHTML = `
         <div class="popup-content">
           <img src="${img}" style="width:100%;border-radius:10px;">
           <h3>${name}</h3>
-          <p>${formattedDesc}</p>
+          <p>${longDesc.replace(/\n/g,'<br>')}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
           <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
           <br><br>
@@ -273,7 +272,7 @@
       popup.innerHTML = `
         <div class="popup-content">
           <h3>${name}</h3>
-          <p style="margin-bottom:15px;">${longDesc}</p>
+          <p>${longDesc}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
           <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
           <br><br>
