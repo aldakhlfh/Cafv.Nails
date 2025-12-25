@@ -46,7 +46,7 @@
     h3 { text-align:center; margin-bottom:30px; color: var(--accent); }
 
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; }
+    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; padding:10px; }
     .card:hover { transform:translateY(-5px); }
     .card img { width:100%; height:200px; object-fit:cover; }
     .card h4 { margin:15px 0 5px; font-weight:600; color:var(--darkpink); }
@@ -147,6 +147,7 @@
   <script>
     function closeLogin() { document.getElementById('login-popup').style.display='none'; }
 
+    // Data Nail Art (dengan gambar)
     const products = [
       { name: "Gel Polish Polos – Maroon", price: 45000, longDesc: "Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa.", img: "maroonpolos.jpg" },
       { name: "Blush Pink Nail Art", price: 50000, longDesc: "Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih.", img: "Blushpink.jpg" },
@@ -158,16 +159,18 @@
       { name: "Cat Eye Nail Art", price: 140000, longDesc: "Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya menciptakan tampilan elegan dan memikat.", img: "Cateye.jpg" }
     ];
 
+    // Data Treatment (tanpa gambar)
     const treatments = [
-      { name: 'Basic Manicure', price: 60000 },
-      { name: 'Russian Manicure', price: 180000 },
-      { name: 'Nail Extension', price: 200000 },
-      { name: 'Pedicure Spa', price: 100000 }
+      { name: 'Basic Manicure', price: 60000, longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.' },
+      { name: 'Russian Manicure', price: 180000, longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.' },
+      { name: 'Nail Extension', price: 200000, longDesc: 'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.' },
+      { name: 'Pedicure Spa', price: 100000, longDesc: 'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi.' }
     ];
 
     const storeGrid = document.getElementById('store-grid');
     const treatmentGrid = document.getElementById('treatment-grid');
 
+    // Render Nail Art
     products.forEach(p => {
       storeGrid.innerHTML += `
         <div class="card">
@@ -179,12 +182,14 @@
         </div>`;
     });
 
+    // Render Treatment (tanpa gambar)
     treatments.forEach(t => {
       treatmentGrid.innerHTML += `
         <div class="card">
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
           <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
+          <button onclick="showTreatmentDetail('${t.name}', '${t.longDesc}', ${t.price})">Detail</button>
         </div>`;
     });
 
@@ -241,6 +246,7 @@
       document.querySelector('.popup').remove();
     }
 
+    // Popup Detail Nail Art (dengan gambar)
     function showDetail(name, longDesc, price, img){
       const popup = document.createElement('div');
       popup.className = 'popup';
@@ -259,7 +265,26 @@
       document.body.appendChild(popup);
     }
 
+    // Popup Detail Treatment (tanpa gambar)
+    function showTreatmentDetail(name, longDesc, price){
+      const popup = document.createElement('div');
+      popup.className = 'popup';
+      popup.innerHTML = `
+        <div class="popup-content">
+          <h3>${name}</h3>
+          <p>${longDesc}</p>
+          <p><b>Rp${price.toLocaleString()}</b></p>
+          <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
+          <br><br>
+          <button onclick="checkout()">Checkout 💳</button>
+          <br><br>
+          <button onclick="this.closest('.popup').remove()">Tutup</button>
+        </div>`;
+      document.body.appendChild(popup);
+    }
+
     updateCart();
   </script>
+
 </body>
 </html>
