@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Cafv Nails Studio | Nail Art & Treatment Tangerang</title>
   <meta name="description" content="Cafv Nails Studio menyediakan layanan nail art dan nail treatment berkualitas di Tangerang untuk mahasiswa dan umum.">
   <meta name="keywords" content="nail art tangerang, nail treatment, cafv nails studio">
@@ -45,8 +46,9 @@
     h3 { text-align:center; margin-bottom:30px; color: var(--accent); }
 
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; padding:15px; }
+    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; }
     .card:hover { transform:translateY(-5px); }
+    .card img { width:100%; height:200px; object-fit:cover; }
     .card h4 { margin:15px 0 5px; font-weight:600; color:var(--darkpink); }
     .card p { font-size:14px; margin-bottom:10px; }
     .card button { background: var(--accent); border:none; color:white; padding:8px 15px; border-radius:8px; cursor:pointer; transition:0.3s; font-size:14px; margin:5px; width:45%; }
@@ -112,7 +114,7 @@
 
   <!-- TREATMENT -->
   <section id="treatment">
-    <h3>💖 Pilihan Treatment</h3>
+    <h3>💖 Treatment Nails</h3>
     <div class="grid" id="treatment-grid"></div>
 
     <div id="cart">
@@ -146,16 +148,21 @@
     function closeLogin() { document.getElementById('login-popup').style.display='none'; }
 
     const products = [
-      { name: "Gel Polish Polos – Maroon", price: 45000, longDesc: "Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa." },
-      { name: "Blush Pink Nail Art", price: 50000, longDesc: "Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih." },
-      { name: "Chrome Nail Art", price: 60000, longDesc: "Bold Shine, Modern Luxury.\nEfek chrome berkilau seperti cermin menghadirkan tampilan futuristik dan mewah." }
+      { name: "Gel Polish Polos – Maroon", price: 45000, longDesc: "Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa.", img: "assets/img/maroonpolos.jpg" },
+      { name: "Blush Pink Nail Art", price: 50000, longDesc: "Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih.", img: "assets/img/Blushpink.jpg" },
+      { name: "Chrome Nail Art", price: 60000, longDesc: "Bold Shine, Modern Luxury.\nEfek chrome berkilau seperti cermin menghadirkan tampilan futuristik dan mewah.", img: "assets/img/chrome.jpg" },
+      { name: "Glitter Nail Art", price: 70000, longDesc: "Sparkle with Confidence.\nSentuhan glitter yang memantulkan cahaya memberikan kesan glamor dan hidup.", img: "assets/img/gliter.jpg" },
+      { name: "Floral Nail Art", price: 75000, longDesc: "Graceful, Feminine, Romantic.\nMotif bunga yang dirancang dengan detail halus menghadirkan nuansa lembut dan romantis.", img: "assets/img/Floral.jpg" },
+      { name: "Marble Nail Art", price: 80000, longDesc: "Art Inspired by Nature.\nDesain marmer eksklusif dengan alur artistik menciptakan kesan mewah dan sophisticated.", img: "assets/img/marble.jpg" },
+      { name: "3D Nail Art", price: 150000, longDesc: "Statement of Glamour.\nDetail tiga dimensi seperti mutiara dan charms menghadirkan tampilan dramatis dan eksklusif.", img: "assets/img/3D.jpg" },
+      { name: "Cat Eye Nail Art", price: 140000, longDesc: "Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya menciptakan tampilan elegan dan memikat.", img: "assets/img/Cateye.jpg" }
     ];
 
     const treatments = [
-      { name: 'Basic Manicure', price: 60000, longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.' },
-      { name: 'Russian Manicure', price: 180000, longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.' },
-      { name: 'Nail Extension', price: 200000, longDesc: 'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.' },
-      { name: 'Pedicure Spa', price: 100000, longDesc: 'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi.' }
+      { name: 'Basic Manicure', price: 60000, longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.', img: 'assets/img/BasicManicure.jpg' },
+      { name: 'Russian Manicure', price: 180000, longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.', img: 'assets/img/RussianManicure.jpg' },
+      { name: 'Nail Extension', price: 200000, longDesc: 'Layanan penambahan panjang dan pembentukan kuku menggunakan gel atau acrylic.', img: 'assets/img/NailExstension.jpg' },
+      { name: 'Pedicure Spa', price: 100000, longDesc: 'Perawatan kaki menyeluruh yang dipadukan dengan spa treatment untuk relaksasi.', img: 'assets/img/PedicureSpa.jpg' }
     ];
 
     const storeGrid = document.getElementById('store-grid');
@@ -164,20 +171,22 @@
     products.forEach(p => {
       storeGrid.innerHTML += `
         <div class="card">
+          <img src="${p.img}" alt="${p.name}">
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
           <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price})">Detail</button>
+          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
         </div>`;
     });
 
     treatments.forEach(t => {
       treatmentGrid.innerHTML += `
         <div class="card">
+          <img src="${t.img}" alt="${t.name}">
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
           <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${t.name}', '${t.longDesc}', ${t.price})">Detail</button>
+          <button onclick="showDetail('${t.name}', '${t.longDesc}', ${t.price}, '${t.img}')">Detail</button>
         </div>`;
     });
 
@@ -234,11 +243,12 @@
       document.querySelector('.popup').remove();
     }
 
-    function showDetail(name, longDesc, price){
+    function showDetail(name, longDesc, price, img){
       const popup = document.createElement('div');
       popup.className = 'popup';
       popup.innerHTML = `
         <div class="popup-content">
+          <img src="${img}" style="width:100%;border-radius:10px;">
           <h3>${name}</h3>
           <p>${longDesc.replace(/\n/g,'<br>')}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
