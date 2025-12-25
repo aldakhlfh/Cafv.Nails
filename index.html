@@ -108,7 +108,7 @@
 
   <!-- STORE (KATALOG) -->
   <section id="katalog">
-    <h3>🛍 Katalog Nail Art</h3>
+    <h3>🛍️ Katalog Nail Art</h3>
     <div class="grid" id="store-grid"></div>
   </section>
 
@@ -231,7 +231,7 @@
             <button onclick="payAll('DANA')">Bayar via DANA 📲</button>
           </div>
           <p>Atau hubungi kami di Instagram untuk info lebih lanjut:</p>
-          <a href="https://www.instagram.com/cafv.nails_" target="blank" style="color:#fff; font-weight:bold;">@cafv.nails 💬</a>
+          <a href="https://www.instagram.com/cafv.nails_" target="_blank" style="color:#fff; font-weight:bold;">@cafv.nails_ 💬</a>
           <br><br>
           <button onclick="this.closest('.popup').remove()">Tutup</button>
         </div>`;
@@ -239,7 +239,7 @@
     }
 
     function payAll(method){
-      alert(Pembayaran via ${method} berhasil ✅);
+      alert(`Pembayaran via ${method} berhasil ✅`);
       cart = [];
       localStorage.removeItem('cart');
       updateCart();
