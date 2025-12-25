@@ -178,7 +178,7 @@
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
           <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
+          <button onclick="showDetailByIndex(${products.indexOf(p)})">Detail</button>
         </div>`;
     });
 
