@@ -3,31 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Cafv Nails Studio | Nail Art & Treatment Tangerang</title>
-  <meta name="description" content="Cafv Nails Studio menyediakan layanan nail art dan nail treatment berkualitas di Tangerang untuk mahasiswa dan umum.">
-  <meta name="keywords" content="nail art tangerang, nail treatment, cafv nails studio">
-  <meta name="author" content="Alda Kholifah">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BeautySalon",
-    "name": "Cafv Nails Studio",
-    "url": "https://aldakhlfh.github.io/Cafv.Nails/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Tangerang",
-      "addressCountry": "ID"
-    },
-    "sameAs": [
-      "https://www.instagram.com/cafv.nails_"
-    ]
-  }
-  </script>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root { --pink:#f6a8b9; --accent:#f06c88; --light:#fff5f8; --darkpink:#d85775; }
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
@@ -46,7 +23,7 @@
     h3 { text-align:center; margin-bottom:30px; color: var(--accent); }
 
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; }
+    .card { background:var(--pink); border-radius:15px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s; cursor:pointer; padding:10px; }
     .card:hover { transform:translateY(-5px); }
     .card img { width:100%; height:200px; object-fit:cover; }
     .card h4 { margin:15px 0 5px; font-weight:600; color:var(--darkpink); }
@@ -108,13 +85,13 @@
 
   <!-- STORE (KATALOG) -->
   <section id="katalog">
-    <h3>🛍️ Katalog Nail Art</h3>
+    <h3>🛍 Katalog Nail Art</h3>
     <div class="grid" id="store-grid"></div>
   </section>
 
   <!-- TREATMENT -->
   <section id="treatment">
-    <h3>💖 Pilihan Treatment Nails</h3>
+    <h3>💖 Pilihan Treatment</h3>
     <div class="grid" id="treatment-grid"></div>
 
     <div id="cart">
@@ -147,6 +124,7 @@
   <script>
     function closeLogin() { document.getElementById('login-popup').style.display='none'; }
 
+    // Data Nail Art
     const products = [
       { name: "Gel Polish Polos – Maroon", price: 45000, longDesc: "Refined. Elegant. Timeless.\nBalutan warna maroon yang kaya dan mendalam memberikan kesan anggun serta dewasa.", img: "maroonpolos.jpg" },
       { name: "Blush Pink Nail Art", price: 50000, longDesc: "Soft Beauty in Every Detail.\nWarna blush pink yang lembut menciptakan tampilan feminin dan bersih.", img: "Blushpink.jpg" },
@@ -158,6 +136,7 @@
       { name: "Cat Eye Nail Art", price: 140000, longDesc: "Mysterious Glow, Captivating Look.\nEfek cat eye yang berkilau mengikuti cahaya menciptakan tampilan elegan dan memikat.", img: "Cateye.jpg" }
     ];
 
+    // Data Treatment
     const treatments = [
       { name: 'Basic Manicure', price: 60000, longDesc: 'Perawatan dasar kuku untuk membersihkan, merapikan, dan menjaga kesehatan kuku tangan.' },
       { name: 'Russian Manicure', price: 180000, longDesc: 'Manicure presisi tingkat lanjut dengan teknik khusus untuk hasil kuku ekstra rapi dan tahan lama.' },
@@ -168,26 +147,26 @@
     const storeGrid = document.getElementById('store-grid');
     const treatmentGrid = document.getElementById('treatment-grid');
 
-    // Katalog Nail Art (ada gambar)
-    products.forEach(p => {
+    // Render Nail Art
+    products.forEach((p, i) => {
       storeGrid.innerHTML += `
         <div class="card">
-          <img src="asset/img/${p.img}" alt="${p.name}">
+          <img src="${p.img}" alt="${p.name}">
           <h4>${p.name}</h4>
           <p>Rp${p.price.toLocaleString()}</p>
           <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-          <button onclick="showDetail('${p.name}', '${p.longDesc}', ${p.price}, '${p.img}')">Detail</button>
+          <button onclick="showDetailByIndex(${i})">Detail</button>
         </div>`;
     });
 
-    // Treatment (tidak ada gambar, tapi detail muncul)
-    treatments.forEach(t => {
+    // Render Treatment
+    treatments.forEach((t, i) => {
       treatmentGrid.innerHTML += `
         <div class="card">
           <h4>${t.name}</h4>
           <p>Rp${t.price.toLocaleString()}</p>
           <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
-          <button onclick="showTreatmentDetail('${t.name}', '${t.longDesc}', ${t.price})">Detail</button>
+          <button onclick="showTreatmentDetail(${i})">Detail</button>
         </div>`;
     });
 
@@ -228,8 +207,8 @@
             <button onclick="payAll('OVO')">Bayar via OVO 📲</button>
             <button onclick="payAll('DANA')">Bayar via DANA 📲</button>
           </div>
-          <p>Atau hubungi kami di Instagram untuk info lebih lanjut:</p>
-          <a href="https://www.instagram.com/cafv.nails_" target="_blank" style="color:#fff; font-weight:bold;">@cafv.nails_ 💬</a>
+          <p>Atau hubungi kami di Instagram:</p>
+          <a href="https://www.instagram.com/cafv.nails_" target="blank" style="color:#fff; font-weight:bold;">@cafv.nails 💬</a>
           <br><br>
           <button onclick="this.closest('.popup').remove()">Tutup</button>
         </div>`;
@@ -237,19 +216,20 @@
     }
 
     function payAll(method){
-      alert(`Pembayaran via ${method} berhasil ✅`);
+      alert(Pembayaran via ${method} berhasil ✅);
       cart = [];
       localStorage.removeItem('cart');
       updateCart();
       document.querySelector('.popup').remove();
     }
 
+    // Popup Nail Art
     function showDetail(name, longDesc, price, img){
       const popup = document.createElement('div');
       popup.className = 'popup';
       popup.innerHTML = `
         <div class="popup-content">
-          <img src="asset/img/${img}" style="width:100%;border-radius:10px;">
+          <img src="${img}" style="width:100%;border-radius:10px;">
           <h3>${name}</h3>
           <p>${longDesc.replace(/\n/g,'<br>')}</p>
           <p><b>Rp${price.toLocaleString()}</b></p>
@@ -262,15 +242,22 @@
       document.body.appendChild(popup);
     }
 
-    function showTreatmentDetail(name, longDesc, price){
+    function showDetailByIndex(index){
+      const p = products[index];
+      showDetail(p.name, p.longDesc, p.price, p.img);
+    }
+
+    // Popup Treatment
+    function showTreatmentDetail(index){
+      const t = treatments[index];
       const popup = document.createElement('div');
       popup.className = 'popup';
       popup.innerHTML = `
         <div class="popup-content">
-          <h3>${name}</h3>
-          <p>${longDesc.replace(/\n/g,'<br>')}</p>
-          <p><b>Rp${price.toLocaleString()}</b></p>
-          <button onclick="addToCart('${name}', ${price})">Tambah ke Keranjang</button>
+          <h3>${t.name}</h3>
+          <p>${t.longDesc}</p>
+          <p><b>Rp${t.price.toLocaleString()}</b></p>
+          <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
           <br><br>
           <button onclick="checkout()">Checkout 💳</button>
           <br><br>
@@ -281,5 +268,6 @@
 
     updateCart();
   </script>
+
 </body>
 </html>
