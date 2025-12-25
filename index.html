@@ -184,17 +184,14 @@
     });
 
     // Render Treatment (tanpa gambar)
-    products.forEach((p, i) => {
-  storeGrid.innerHTML += `
-    <div class="card">
-      <img src="${p.img}" alt="${p.name}">
-      <h4>${p.name}</h4>
-      <p>Rp${p.price.toLocaleString()}</p>
-      <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-      <button onclick="showProductDetail(${i})">Detail</button>
-    </div>`;
-});
-
+    treatments.forEach(t => {
+      treatmentGrid.innerHTML += `
+        <div class="card">
+          <h4>${t.name}</h4>
+          <p>Rp${t.price.toLocaleString()}</p>
+          <button onclick="addToCart('${t.name}', ${t.price})">Tambah ke Keranjang</button>
+          <button onclick="showTreatmentDetail('${t.name}', '${t.longDesc}', ${t.price})">Detail</button>
+        </div>`;
     });
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -270,7 +267,7 @@
     }
 
     // Popup Detail Treatment (tanpa gambar)
-           function showTreatmentDetail(name, longDesc, price){
+    function showTreatmentDetail(name, longDesc, price){
       const popup = document.createElement('div');
       popup.className = 'popup';
       popup.innerHTML = `
@@ -288,7 +285,6 @@
     }
 
     updateCart();
-
   </script>
 
 </body>
